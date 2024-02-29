@@ -2,14 +2,14 @@
 
 Este repositorio contiene una colección de ejercicios realizados como parte del curso **IFCD0210 - Desarrollo de Aplicaciones con Tecnologías Web**. Los ejercicios están relacionados con el lenguaje de programación PHP.
 
-## Estructura del Repositorio
+<!-- ## Estructura del Repositorio
 
 El repositorio está estructurado de la siguiente manera:
 
 - **/ejercicios/**: En esta carpeta se encuentran todos los ejercicios realizados durante el curso.
 - **/soluciones/**: Aquí se pueden encontrar las soluciones a los ejercicios.
 - **/recursos/**: Cualquier recurso adicional utilizado en los ejercicios (archivos de ejemplo, imágenes, etc.) se encuentra en esta carpeta.
-- **/proyectos/**: Eventualmente, se pueden incluir proyectos más grandes relacionados con el curso.
+- **/proyectos/**: Eventualmente, se pueden incluir proyectos más grandes relacionados con el curso. -->
 
 ## Lista de Ejercicios
 
