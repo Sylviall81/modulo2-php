@@ -6,19 +6,20 @@
     <title>Prueba php</title>
 </head>
 <body>
+
+<center>
+
+            <h1>PHP Info</h1> </center>
+
     <?php
-   // phpinfo();
+   phpinfo();
 
-   echo '<h1>HOLA MUNDO</h1>';
+//    echo '<h1>HOLA MUNDO</h1>';
 
-   print '<h2>texto con print</h2>';
+//    print '<h2>texto con print</h2>';
 
     ?>
 
-    <h3>Ejercicio 1</h3>
-
-    <p>Declarar variables en php para almacenar tu nombre apellido, edad y ciudad natal. 
-        Imprimir el valor de las variables en la pantalla</p>
-    
+   
 </body>
 </html>
