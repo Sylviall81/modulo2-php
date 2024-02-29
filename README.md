@@ -18,6 +18,10 @@ El repositorio está estructurado de la siguiente manera:
    - Archivo: `./01variables/index.php`
    - Archivo: `./02area-triangulo/index.php`
    - Archivo: `./03bucles/index.php`
+   - Archivo: `./04factorial/index.php`
+
+
+
 
 <!-- 2. **Ejercicio 2: Manipulación de Arrays**
    - Descripción: Ejercicio para practicar la manipulación de arrays en PHP.
