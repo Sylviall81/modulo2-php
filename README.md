@@ -19,6 +19,8 @@ El repositorio está estructurado de la siguiente manera:
    - Archivo: `./03bucles/index.php`
    - Archivo: `./04factorial/index.php`
    - Archivo: `./05Sorteo/index.php` (Arrays y métodos de array)
+   - Archivo: `./06arr-asociativo/index.php` (acceder, modificar, eliminar (unset y array_diff))
+   - Archivo: `./06arr-multidimensional/index.php` (lista de contactos)
 
 
 
