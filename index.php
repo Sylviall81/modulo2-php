@@ -64,15 +64,17 @@
 
     $indexGanadores = pickWinner($numParticipantes,$premios);
     print_r($indexGanadores);
-
+?>
     
-    echo '<h2> Felicidades a los ganadores:</h2> <br> <ol>';
-
-    foreach ($indexGanadores as $numOrder){    
-        echo ' <li>'.$arrayParticipantes[$numOrder].'</li>';        
+    <h2> Felicidades a los ganadores:</h2>
+     <ol>
+<?php
+    foreach ($indexGanadores as $numOrder){   
+        echo "<li>".$numOrder."<li>"; 
+        echo '<li>'.$arrayParticipantes[$numOrder].'</li>';        
     };
-
-    echo '</ol>';
+?>
+    </ol>
 
     
 
