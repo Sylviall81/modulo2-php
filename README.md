@@ -18,18 +18,14 @@ El repositorio está estructurado de la siguiente manera:
    - Archivo: `./02area-triangulo/index.php`
    - Archivo: `./03bucles/index.php`
    - Archivo: `./04factorial/index.php`
+   
+2. **Ejercicio 2: Manipulación de Arrays**
+   - Descripción: Ejercicio para practicar la manipulación de arrays en PHP.
    - Archivo: `./05Sorteo/index.php` (Arrays y métodos de array)
    - Archivo: `./06arr-asociativo/index.php` (acceder, modificar, eliminar (unset y array_diff))
    - Archivo: `./06arr-multidimensional/index.php` (lista de contactos)
 
-
-
-
-<!-- 2. **Ejercicio 2: Manipulación de Arrays**
-   - Descripción: Ejercicio para practicar la manipulación de arrays en PHP.
-   - Archivo: `ejercicios/arrays.php`
-
-3. **Ejercicio 3: Formularios y Manejo de Datos**
+<!--3. **Ejercicio 3: Formularios y Manejo de Datos**
    - Descripción: Ejercicio centrado en el manejo de datos de formularios en PHP.
    - Archivo: `ejercicios/formularios.php` -->
 
