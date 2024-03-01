@@ -38,14 +38,11 @@
     $numParticipantes = count($arrayParticipantes);
     echo 'ver numero de participantes:';
     var_dump(count($arrayParticipantes));
-     //posicion de los participantes dentro del array
-    echo 'ver ultimo index participantes:';
-    var_dump(($indexParticipantes));
-
-
+    
+  
     function pickWinner( $numParticipantes, $premios) {
         $arrayGanadores = [];
-        $indexParticipantes = $numParticipantes - 1;
+        $indexParticipantes = $numParticipantes - 1;//hay q meterlo como variable local xq si no da error
 
         while ( count($arrayGanadores) < $premios) {
 
