@@ -18,6 +18,7 @@ El repositorio está estructurado de la siguiente manera:
    - Archivo: `./02area-triangulo/index.php`
    - Archivo: `./03bucles/index.php`
    - Archivo: `./04factorial/index.php`
+   - Archivo: `./05Sorteo/index.php` (Arrays y métodos de array)
 
 
 

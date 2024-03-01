@@ -40,9 +40,7 @@
 
 
     function pickWinner( $numParticipantes, $premios) {
-
         $arrayGanadores = [];
-
 
         while ( count($arrayGanadores) < $premios) {
 
@@ -67,10 +65,7 @@
     $indexGanadores = pickWinner($numParticipantes,$premios);
     print_r($indexGanadores);
 
-
-    echo("prueba array ganadores posiciones");
     
-
     echo '<h2> Felicidades a los ganadores:</h2> <br> <ol>';
 
     foreach ($indexGanadores as $numOrder){    
