@@ -70,20 +70,12 @@
      <ol>
 <?php
     foreach ($indexGanadores as $numOrder){   
-        echo "<li>".$numOrder."<li>"; 
         echo '<li>'.$arrayParticipantes[$numOrder].'</li>';        
     };
 ?>
     </ol>
 
     
-
-
-
-  
-   
-
-    ?>
 
    
 </body>
