@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba php</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -45,7 +46,7 @@
         while ( count($arrayGanadores) < $premios) {
 
             $ganador = rand(0,$numParticipantes);
-            echo 'ganador:'.$ganador;
+            // echo 'ganador:'.$ganador;
 
 
             if (!in_array($ganador,$arrayGanadores)){
@@ -63,17 +64,36 @@
 
 
     $indexGanadores = pickWinner($numParticipantes,$premios);
-    print_r($indexGanadores);
-?>
+    // print_r($indexGanadores);
+
     
-    <h2> Felicidades a los ganadores:</h2>
-     <ol>
-<?php
-    foreach ($indexGanadores as $numOrder){   
-        echo '<li>'.$arrayParticipantes[$numOrder].'</li>';        
-    };
 ?>
-    </ol>
+
+<h2>Lista de participantes:</h2>
+
+<ol>
+    <?php 
+
+foreach ($arrayParticipantes as $participante){   
+    echo '<li>'.$participante.'</li>';        
+};
+   ?>
+</ol>
+
+
+
+<div class ="container">
+    
+            <h2> Ganadores:</h2>
+            <ol>
+        <?php
+            foreach ($indexGanadores as $numOrder){   
+                echo '<li>'.$arrayParticipantes[$numOrder].'</li>';        
+            };
+        ?>
+            </ol>
+
+</div>
 
     
 
