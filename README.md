@@ -1,5 +1,4 @@
-# Repositorio de Ejercicios de PHP - Curso IFCD0210
-
+# Repositorio Ejercicios de PHP - Certficado Profesional DAW-FCD0210
 Este repositorio contiene una colección de ejercicios realizados como parte del curso **IFCD0210 - Desarrollo de Aplicaciones con Tecnologías Web**. Los ejercicios están relacionados con el lenguaje de programación PHP.
 
 <!-- ## Estructura del Repositorio
