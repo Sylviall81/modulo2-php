@@ -26,7 +26,8 @@
     'Cristina Gutierrez',
     'Humberto Nuñez',
     'Petra Alvarado',
-    'Rafael Torres'
+    'Rafael Torres',
+    'Daniel Fernandez'
     ];
 
 
@@ -35,17 +36,20 @@
 
     $premios = 3;
     $numParticipantes = count($arrayParticipantes);
-    //var_dump(count($arrayParticipantes));
-    $indexParticipantes = $numParticipantes - 1; //posicion de los participantes dentro del array
-    //var_dump(($indexParticipantes));
+    echo 'ver numero de participantes:';
+    var_dump(count($arrayParticipantes));
+     //posicion de los participantes dentro del array
+    echo 'ver ultimo index participantes:';
+    var_dump(($indexParticipantes));
 
 
     function pickWinner( $numParticipantes, $premios) {
         $arrayGanadores = [];
+        $indexParticipantes = $numParticipantes - 1;
 
         while ( count($arrayGanadores) < $premios) {
 
-            $ganador = rand(0,$numParticipantes);
+            $ganador = rand(0,$indexParticipantes);
             // echo 'ganador:'.$ganador;
 
 
