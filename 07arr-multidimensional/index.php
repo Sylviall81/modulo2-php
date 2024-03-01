@@ -10,17 +10,24 @@
 
 <body>
 
-    <h1>Array Asociativo</h1>
+    <h1>Array Multidimensional</h1>
+
+
+    <p>Crea una agenda con datos de 3 contactos. Cada contacto tendrá nombre, teléfono y correo electrónico.
+        Muestra los resultados.
+
+        Después de imprimir el resultado añade otro contacto y cambia el teléfono del primer contacto. Vuelve a imprimir el resultado.
+    </p>
 
 
 
     <?php
 
-    $movie = [
-        'title' => 'The Godfather',
-        'year' => '1972',
-        'duration' => '175min.',
-        'genre' => 'drama'
+    $contacto = [
+        'nombre' => 'María',
+        'apellido' => 'Olmo',
+        'teléfono' => '618240976',
+        'email' => 'fake@mail.com'
     ];
 
     print_r($movie);
