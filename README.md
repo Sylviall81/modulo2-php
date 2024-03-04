@@ -18,7 +18,7 @@ El repositorio está estructurado de la siguiente manera:
    - Archivo: `./02area-triangulo/index.php`
    - Archivo: `./03bucles/index.php`
    - Archivo: `./04factorial/index.php`
-    - Archivo: `./08loop-piramide/index.php`
+   - Archivo: `./08loop-piramide/index.php`
    
 2. **Parte II: Manipulación de Arrays**
    - Descripción: Ejercicio para practicar la manipulación de arrays en PHP.
