@@ -95,7 +95,7 @@
     $keys = array_keys($movie);
     echo $keys[2];//duration
     echo '<hr>';
-    
+
     echo '<br>';
     echo 'mostrar con un for each solo los valores (el contenido de las key o categorias) <br>';
     echo '<br>';
@@ -104,8 +104,6 @@
     foreach ($movie as $value ){
             echo $value.'<br>';
     }
-
-
 
 
 

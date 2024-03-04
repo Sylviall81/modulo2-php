@@ -24,129 +24,48 @@
     <?php
 
 
-    $agenda = Array(
+    $agenda = array(
 
-    $contacto01= [
+    array (
         'nombre' => 'María',
         'apellido' => 'Olmo',
         'teléfono' => '616260746',
         'email' => 'fakeOne@mail.com'
-    ],
-    $contacto02= [
+    ),
+     array (
         'nombre' => 'Elena',
         'apellido' => 'Gutierrez',
         'teléfono' => '618240779',
         'email' => 'fakeTwo@mail.com'
-    ],
-    $contacto03= [
+    ),
+    array (
         'nombre' => 'Pablo',
         'apellido' => 'Rodríguez',
         'teléfono' => '618240976',
         'email' => 'fakeThree@mail.com',
-    ]
+    )
 
     );
 
 
     print_r($agenda);
+    echo '<hr>';
 
-    // print_r($movie);
-
-    // echo '<br>';
-    // echo '<hr>';
-
-    // echo '<h3>Acceder</h3>';
-    // echo 'imprimir solo valor:<br>';
-    // echo $movie['title'];
-
-
-    // echo '<br>';
-    // echo '<hr>';
-
-    // echo '<h3>Modificar</h3>';
-    // echo 'modificar valor de una llave(key) genero Drama cambia a crime<br>';
-    // echo $movie['genre'] = 'crime';
-    // echo '<br>';
-
-    // print_r($movie);
-
-    // echo '<br>';
-    // echo '<hr>';
-
-    // echo '<h3>Añadir</h3>';
-    // echo 'añadir nueva key, añado el rating de la peli<br>';
-    // echo $movie['rating'] = '9.2';
-    // echo '<br>';
-    // print_r($movie);
-
-    // echo '<br>';
-    // echo '<hr>';
-
-    // echo '<h3>Eliminar</h3>';
-
-    // echo 'ejemplo unset: eliminar el key "rating" ';
-
-    // unset($movie["rating"]); //Unset elimina ese key del array
-    // echo '<br>';
-    // print_r($movie);
-
-    // echo '<br>';
-    // echo '<hr>';
+    echo '<br>';
+    echo 'mostrar con un for each clave valor (hay q usar dos foreach) <br>';
+    echo '<br>';
+    foreach ($agenda as $contacto => $data){ //el primer for each entra en  agenda y recorre el item de 1er nivel (contacto) 
+        //el segundo recorre el array contacto y desglosa las key
+          foreach ($data as $key => $value){
+           echo $key.':'.$value.'<br>';
+          }
+          echo '<hr>';
+}
 
 
-    // echo ' ejemplo array_diff:(crea un nuevo array eliminando algun valor de las key q uno le indique)';
-    // echo '<br>';
-    // echo '<br>';
-
-
-    // echo 'array $movie:';
-    // print_r($movie);
-    // echo '<br>';
-    // echo '<br>';
-    // echo 'creo un nuevo array a partir de movie pero eliminando el valor dentro del key "genre" <br>';
-    // echo 'aplico array_diff y creo $nueva_peli: <br>';
-    // //array_diff Crea un nuevo array sin el/los elemento/s
-    // echo '<br>';
-    // $nueva_peli = array_diff($movie, ["crime"]);
-    // print_r($nueva_peli);
 
     ?>
 
-
-
-
-
-
-
-
-
-
-
-    <!-- <h2>Lista de participantes:</h2>
-
-<ol>
-    <?php
-
-    foreach ($arrayParticipantes as $participante) {
-        echo '<li>' . $participante . '</li>';
-    };
-    ?>
-</ol>
-
-
-
-<div class ="container">
-    
-            <h2> Ganadores:</h2>
-            <ol>
-        <?php
-        foreach ($indexGanadores as $numOrder) {
-            echo '<li>' . $arrayParticipantes[$numOrder] . '</li>';
-        };
-        ?>
-            </ol>
-
-</div> -->
 
 
 
