@@ -31,6 +31,7 @@
         'apellido' => 'Olmo',
         'teléfono' => '616260746',
         'email' => 'fakeOne@mail.com'
+        
     ),
      array (
         'nombre' => 'Elena',
@@ -60,7 +61,80 @@
            echo $key.':'.$value.'<br>';
           }
           echo '<hr>';
-}
+        }
+
+        echo '<br>';
+    echo 'agregar un contacto: Fernando Ramirez';
+    echo '<br>';
+    echo 'se puedes hacer simplemente $agenda[]= "clave: datos del contacto" o array_push($agenda, array(clave:valor)) (Prueba array push sabrina)';
+    echo '<br>';
+    echo '<br>';
+
+    $agenda[3] = array (
+        'nombre' => 'Fernando',
+        'apellido' => 'Ramirez',
+        'teléfono' => '629987654',
+        'email' => 'fakeFour@mail.com'
+
+    );
+
+    array_push($agenda,array(
+        'nombre' => 'Sabrina',
+        'apellido' => 'Mendez',
+        'teléfono' => '326589474',
+        'email' => 'fakeFive@mail.com'
+
+    ));
+
+    print_r($agenda);
+
+    echo 'mostrar solo valor (hay q usar dos foreach) <br>';
+
+    foreach ($agenda as $contacto => $data){ //el primer for each entra en  agenda y recorre el item de 1er nivel (contacto) 
+        //el segundo recorre el array contacto y desglosa las key
+        echo '<br>';
+        foreach ($data as $value){
+
+           echo $value.'<br>';
+          }
+          echo '<hr>';
+        }
+
+        echo 'cambiar el telefono del primer contacto $array[posicion][key]= "new value" ';
+        echo '<br>';
+        echo 'en este caso $agenda[0]["teléfono"] = "xxxxxxxx" ';
+        echo '<br>';
+
+        //cambiar el telef 
+        //No es asi xq asi se crea un nuevo array solo con María (primer usuario  y se le añade un telef
+        //$contactoUno = $agenda[0];
+        // $contactoUno[2] = '628840747-NEW';
+        // print_r($agenda);
+        // echo '<hr>';
+        // print_r($contactoUno);
+
+        //cambiar el value de un determinado key dentro de un item de un array multidimensional
+        $agenda[0]['teléfono'] ='628840747';
+        echo 'imprimir cambio 1er contacto:';
+        echo '<br>';
+        print_r($agenda[0]);
+
+        echo '<hr>';
+
+        echo 'imprimir todo de nuevo <br>';
+
+    foreach ($agenda as $contacto => $data){ //el primer for each entra en  agenda y recorre el item de 1er nivel (contacto) 
+        //el segundo recorre el array contacto y desglosa las key
+        echo '<br>';
+        foreach ($data as $key => $value){
+
+           echo $key.":".$value.'<br>';
+          }
+         
+        }
+
+
+
 
 
 
