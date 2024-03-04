@@ -42,7 +42,7 @@
         'nombre' => 'Pablo',
         'apellido' => 'Rodriguez',
         'teléfono' => '618240976',
-        'email' => 'fake@mail.com'
+        'email' => 'fake@mail.com',
     ],
 
     ]
