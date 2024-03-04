@@ -83,6 +83,34 @@
     $nueva_peli = array_diff($movie, ["crime"]);
     print_r($nueva_peli);
 
+    echo '<br>';
+    echo 'imprimir claves y valor: foreach($variable as $key => $val)" <br>';
+    echo '<br>';
+    foreach ($movie as $key => $val){
+        echo $key.":".$val.'<br>';
+    }
+
+    echo '<br>';
+    echo 'recoger una clave (duration -muestra la categoria no el valor-) con array_keys($array)<br>';
+    $keys = array_keys($movie);
+    echo $keys[2];//duration
+    echo '<hr>';
+    
+    echo '<br>';
+    echo 'mostrar con un for each solo los valores (el contenido de las key o categorias) <br>';
+    echo '<br>';
+    
+
+    foreach ($movie as $value ){
+            echo $value.'<br>';
+    }
+
+
+
+
+
+
+
     ?>
 
 

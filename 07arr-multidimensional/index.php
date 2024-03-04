@@ -24,28 +24,31 @@
     <?php
 
 
-    $agenda = [
+    $agenda = Array(
 
-    $contacto = [
+    $contacto01= [
         'nombre' => 'María',
         'apellido' => 'Olmo',
         'teléfono' => '616260746',
-        'email' => 'fake@mail.com'
+        'email' => 'fakeOne@mail.com'
     ],
-    $contacto = [
+    $contacto02= [
         'nombre' => 'Elena',
         'apellido' => 'Gutierrez',
-        'teléfono' => '618240976',
-        'email' => 'fake@mail.com'
+        'teléfono' => '618240779',
+        'email' => 'fakeTwo@mail.com'
     ],
-    $contacto = [
+    $contacto03= [
         'nombre' => 'Pablo',
-        'apellido' => 'Rodriguez',
+        'apellido' => 'Rodríguez',
         'teléfono' => '618240976',
-        'email' => 'fake@mail.com',
-    ],
-
+        'email' => 'fakeThree@mail.com',
     ]
+
+    );
+
+
+    print_r($agenda);
 
     // print_r($movie);
 
