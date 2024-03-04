@@ -1,0 +1,22 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+h2{
+    color: red;
+}
+
+.container{
+
+    background-color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    width: 15%;
+    font-weight: bold;
+    color: white;
+
+}
