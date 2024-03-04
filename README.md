@@ -12,18 +12,19 @@ El repositorio está estructurado de la siguiente manera:
 
 ## Lista de Ejercicios
 
-1. **Ejercicio 1: Introducción a PHP**
+1. **Parte I: Introducción a PHP**
    - Descripción: Ejercicios introductorios para familiarizarse con la sintaxis básica de PHP.
    - Archivo: `./01variables/index.php`
    - Archivo: `./02area-triangulo/index.php`
    - Archivo: `./03bucles/index.php`
    - Archivo: `./04factorial/index.php`
+    - Archivo: `./08loop-piramide/index.php`
    
-2. **Ejercicio 2: Manipulación de Arrays**
+2. **Parte II: Manipulación de Arrays**
    - Descripción: Ejercicio para practicar la manipulación de arrays en PHP.
    - Archivo: `./05Sorteo/index.php` (Arrays y métodos de array)
    - Archivo: `./06arr-asociativo/index.php` (acceder, modificar, eliminar (unset y array_diff))
-   - Archivo: `./06arr-multidimensional/index.php` (lista de contactos)
+   - Archivo: `./07arr-multidimensional/index.php` (lista de contactos)
 
 <!--3. **Ejercicio 3: Formularios y Manejo de Datos**
    - Descripción: Ejercicio centrado en el manejo de datos de formularios en PHP.
