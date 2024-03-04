@@ -107,6 +107,17 @@ $a = 10;
 echo  'a: '.$a;
 echo '<br>';
 
+echo 'try 9*a <br>';
+echo  9 * $a;
+echo '<br>';
+echo 'b = 7*a <br>';
+$b = 7* $a;
+echo 'print b : '.$b;
+echo '<br>';
+echo 'variable max = '.($max = 57).'<br>';
+echo 'actual = '.$actual = $max - 13;
+echo'<br>';
+echo 'percentage = '.$percentage = $actual/$max;
 
 
 
