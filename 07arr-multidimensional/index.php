@@ -57,6 +57,8 @@
     echo '<br>';
     foreach ($agenda as $contacto => $data){ //el primer for each entra en  agenda y recorre el item de 1er nivel (contacto) 
         //el segundo recorre el array contacto y desglosa las key
+        echo '<h2>'.$data['nombre']." ".$data['apellido'].'</h2>';
+        echo '<br>';
           foreach ($data as $key => $value){
            echo $key.':'.$value.'<br>';
           }
@@ -92,7 +94,7 @@
 
     foreach ($agenda as $contacto => $data){ //el primer for each entra en  agenda y recorre el item de 1er nivel (contacto) 
         //el segundo recorre el array contacto y desglosa las key
-        echo '<br>';
+       
         foreach ($data as $value){
 
            echo $value.'<br>';
