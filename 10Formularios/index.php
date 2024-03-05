@@ -18,8 +18,7 @@
 
     <div class="container-md">
 
-        <form id ="form" method="POST" action="index.php" > <!--esto para imprimir en la misma página-->
-     <!--   <form id ="form" method="POST" action="welcome.php" target= "_blank" > para verlo en una nueva pestaña-->
+       <form id ="form" method="POST" action="welcome.php" target= "_blank" > 
             <div class ="container">
             <label for="name" class="form-label">Name</label>
             <input name="name" type="text" class="form-control form-control-sm" id="name" placeholder="Jane Doe" required>
