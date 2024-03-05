@@ -60,8 +60,20 @@
         echo "Nombre: " . $nombre . "<br>";
         echo "edad: " . $edad . "<br>";
         echo "Correo electrónico: " . $email."<br>";
-        echo "Comentarios: " . $comentarios;
+        echo "Comentarios: " . $comentarios."<br>";
     } 
+
+    echo "<br>";
+
+    echo "<strong>BONUS </strong> ver como esta compuesto get y server:<br>";
+
+    echo "GET:<br>";
+    print_r($_GET);
+
+    echo "<br>";
+    echo "<br>";
+    echo "SERVER: contiene el query string entre las key<br>";
+    print_r($_SERVER);
     ?>
 
     </div>

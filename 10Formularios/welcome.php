@@ -19,7 +19,8 @@
 
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") { //con esto compruebo si me acceden a traves del metodo post
-        $nombre = $_POST["name"];
+        print_r($_POST);
+        $nombre = $_POST['name'];
         $edad = $_POST["age"];
         $comentarios = $_POST["text-area"];
         $email = $_POST["email"];
@@ -30,6 +31,16 @@
         echo "Correo electrónico: " . $email."<br>";
         echo "Comentarios: " . $comentarios;
     }
+
+    echo "<strong>BONUS </strong> ver como esta compuesto POST y server:<br>";
+
+    echo "POST:<br>";
+    print_r($_POST);
+
+    echo "<br>";
+    echo "<br>";
+    echo "SERVER: contiene el query string entre las key<br>";
+    print_r($_SERVER);
     ?>
 
 
