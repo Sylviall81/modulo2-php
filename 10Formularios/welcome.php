@@ -12,19 +12,21 @@
 
 
 
-<div class="container">
+<div class="container bg-primary-subtle  rounded-3">
     <h2>Bienvenid@ te has registrado correctamente!</h2>
-</div>
+
 
 
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") { //con esto compruebo si me acceden a traves del metodo post
         $nombre = $_POST["name"];
+        $edad = $_POST["age"];
         $comentarios = $_POST["text-area"];
         $email = $_POST["email"];
 
         echo "<h2>Información Registrada:</h2>";
         echo "Nombre: " . $nombre . "<br>";
+        echo "Edad: " . $edad."<br>";
         echo "Correo electrónico: " . $email."<br>";
         echo "Comentarios: " . $comentarios;
     }

@@ -18,7 +18,7 @@
 
     <div class="container-md">
 
-        <form id ="form" method="POST" action="index.php" > <!--esto para imprimir en la misma página-->
+        <form id ="form" method="GET" action="indexGET.php" > <!--esto para imprimir en la misma página-->
      <!--   <form id ="form" method="POST" action="welcome.php" target= "_blank" > para verlo en una nueva pestaña-->
             <div class ="container">
             <label for="name" class="form-label">Name</label>
@@ -42,11 +42,11 @@
 
 <div class = "container bg-primary-subtle  rounded-3">
 <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") { //con esto compruebo si me acceden a traves del metodo post
-        $nombre = $_POST["name"];
-        $edad = $_POST["age"];
-        $email = $_POST["email"]; 
-        $comentarios = $_POST["text-area"];?>
+    if ($_SERVER["REQUEST_METHOD"] == "GET") { //con esto compruebo si me acceden a traves del metodo post
+        $nombre = $_GET["name"];
+        $edad = $_GET["age"];
+        $email = $_GET["email"]; 
+        $comentarios = $_GET["text-area"];?>
 
 
 <div class="container">
@@ -61,12 +61,7 @@
         echo "edad: " . $edad . "<br>";
         echo "Correo electrónico: " . $email."<br>";
         echo "Comentarios: " . $comentarios;
-    } else {
-
-
-
-
-    }
+    } 
     ?>
 
     </div>
