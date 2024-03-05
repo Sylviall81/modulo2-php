@@ -35,48 +35,7 @@
     <input type="submit" name="submit" value="Enviar">
     </form>
     </div>
-    <hr>
-
-
-
-<div class = "container bg-primary-subtle  rounded-3">
-<?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") { //con esto compruebo si me acceden a traves del metodo post
-        $nombre = $_POST["name"];
-        $edad = $_POST["age"];
-        $email = $_POST["email"]; 
-        $comentarios = $_POST["text-area"];?>
-
-
-<div class="container">
-
-    <h2>Bienvenid@ te has registrado correctamente!</h2>
-
-
-<?php
-
-        echo "<h2>Información Registrada:</h2>";
-        echo "Nombre: " . $nombre . "<br>";
-        echo "edad: " . $edad . "<br>";
-        echo "Correo electrónico: " . $email."<br>";
-        echo "Comentarios: " . $comentarios;
-    } else {
-
-
-
-
-    }
-    ?>
-
-    </div>
-</div>
-
-
-
-
-
-
-
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
