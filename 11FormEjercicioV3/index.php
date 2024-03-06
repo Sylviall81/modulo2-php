@@ -28,6 +28,7 @@
                                     <!-- <h3>Registro de Premios</h3> -->
 
                                     <div class="mensaje">
+                                        
 
                                         <p>
 
@@ -61,6 +62,7 @@
                                                     );
 
                                                     echo "Gracias, tus datos se han enviado correctamente!";
+                                                    echo '<br><a href="#ganadores">Ver Ganadores</a>';
                                                 }
                                             } else {
 
@@ -125,21 +127,20 @@
             </section>
 
             
+          
+            
+
+            
 
             <section class= "seccion-resultados">
-           
                 <div class="info-sorteo list-content">
                 <h3>DATOS DEL SORTEO</h3>
-                <br>
                     <?php
                     $fecha_actual = date('d-m-Y');
                     $cantidadPremios = $dataSorteo['qtity-winners'][0];
                     ?>
-
                     <p>Fecha: <?php echo $fecha_actual ?></p>
-
-                    <br>
-
+               
                     <h3>PREMIOS</h3>
 
                     <p>De acuerdo a la información insertada se sortean <?php echo $cantidadPremios ?> premios </p> 
@@ -182,10 +183,7 @@
                 </div>
 
                 <div class="info-ganadores list-content">
-
-
-
-
+                <h3 id = "ganadores"> GANADOR@S:</h3>
 
                     <?php
 
@@ -217,13 +215,12 @@
                         return $arrayGanadores;
                     }
 
-
                     $indexGanadores = pickWinner($numParticipantes, $cantidadPremios);
-
                     ?>
 
-                    <h2> Ganadores:</h2>
+                    
                     <ol>
+                    
                         <?php
                         $i = 0;
                         foreach ($indexGanadores as $numOrder) {
@@ -233,15 +230,6 @@
                         ?>
                     </ol>
                 </div>
-
-
-
-
-
-
-
-
-
 
 
     </div>
@@ -272,7 +260,6 @@
 
     </main>
     </div>
-
 
 </body>
 
