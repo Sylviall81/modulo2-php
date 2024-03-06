@@ -196,11 +196,15 @@ header > h1 {
 
     }
 
+   
+
     .info-sorteo {
-        width: 40%
+        width: 40%;
+        text-align: left;
     }
     .info-participantes, .info-ganadores {
         width: 35%;
+        text-align: left;
     }
 
 
