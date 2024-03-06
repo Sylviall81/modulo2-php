@@ -81,26 +81,26 @@
                                         </div>
                                     </form>
                                     <br>
-                                    <div class = 'list-content'>
-                                        
+                                    <div class='list-content'>
+
                                         <?php
 
-                                            if (isset($_POST['prize-qtity']) && isset($_POST['first-prize-amount']) && isset($_POST['second-prize-amount']) && isset($_POST['third-prize-amount'])) {
+                                        if (isset($_POST['prize-qtity']) && isset($_POST['first-prize-amount']) && isset($_POST['second-prize-amount']) && isset($_POST['third-prize-amount'])) {
 
 
-                                                if (($_POST['prize-qtity'] < 1) || ($_POST['prize-qtity'] > 3)) {
-                                                    echo 'Por favor inserta un número de premios válido entre 1 y 3';
-                                                } else {
-
-                                                    $dataSorteo = $_POST;
-                                                    echo "gracias, tus datos se han enviado correctamente!";
-                                                }
+                                            if (($_POST['prize-qtity'] < 1) || ($_POST['prize-qtity'] > 3)) {
+                                                echo 'Por favor inserta un número de premios válido entre 1 y 3';
                                             } else {
-                                               
 
-                                                echo "Por favor, rellena el número de premiados y el monto correspondiente";
+                                                $dataSorteo = $_POST;
+                                                echo "gracias, tus datos se han enviado correctamente!";
                                             }
-                                            ?></div>
+                                        } else {
+
+
+                                            echo "Por favor, rellena el número de premiados y el monto correspondiente";
+                                        }
+                                        ?></div>
 
                                 </div>
                             </div>
@@ -133,7 +133,7 @@
                 ?>
 
                 <p>En el día: <?php echo $fecha_actual ?> se realiza el siguiente sorteo entre los siguientes </p>
-                <h3>PARTICIPANTES</h3>
+                <h2>PARTICIPANTES</h2>
 
                 <ol>
                     <?php
@@ -160,8 +160,7 @@
 
                 <h4>PREMIOS</h4>
 
-                <p>Se sortearan <?php echo $dataSorteo['prize-qtity'] ?> premios </p>
-                <p> respectivamente con la cantidad de :
+                <p>Se sortearan <?php echo $dataSorteo['prize-qtity'] ?> premios respectivamente con la cantidad de :
 
                 <ul>
 
@@ -175,72 +174,64 @@
                 </p>
 
 
+                <?php
 
+                $cantidadPremios = $dataSorteo['prize-qtity'];
+                $cuantiaPremios = array($dataSorteo["first-prize-amount"], $dataSorteo["second-prize-amount"], $dataSorteo["third-prize-amount"]);
+                //print_r($cuantiaPremios);
+
+
+                $numParticipantes = count($arrayParticipantes);
+                //echo 'ver numero de participantes:';
+                //var_dump(count($arrayParticipantes));
+
+
+                function pickWinner($numParticipantes, $cantidadPremios)
+                {
+                    $arrayGanadores = [];
+                    $indexParticipantes = $numParticipantes - 1;
+
+                    while (count($arrayGanadores) < $cantidadPremios) {
+
+                        $ganador = rand(0, $indexParticipantes);
+                        // echo 'ganador:'.$ganador;
+
+
+                        if (!in_array($ganador, $arrayGanadores)) {
+
+                            $arrayGanadores[] = $ganador;
+                        };
+                    }
+
+                    return $arrayGanadores;
+                }
+
+
+                $indexGanadores = pickWinner($numParticipantes, $cantidadPremios);
+                // print_r($indexGanadores);
+                ?>
+
+                <h2> Ganadores:</h2>
+                <ol>
+                    <?php
+                    $i = 0;
+                    foreach ($indexGanadores as $numOrder) {
+                        echo '<li>' . $arrayParticipantes[$numOrder] . " " . $cuantiaPremios[$i] . '€</li>';
+                        $i++;
+                    };
+                    ?>
+                </ol>
+
+    </div>
+
+
+    </section>
     </div>
 
 
 
 
 
-    </section>
-
-
-
-
-    <section class="list-content">
-
-
-        <?php
-
-        $cantidadPremios = $dataSorteo['prize-qtity'];
-        $cuantiaPremios = array($dataSorteo["first-prize-amount"], $dataSorteo["second-prize-amount"], $dataSorteo["third-prize-amount"]);
-        print_r($cuantiaPremios);
-
-
-        $numParticipantes = count($arrayParticipantes);
-        echo 'ver numero de participantes:';
-        var_dump(count($arrayParticipantes));
-
-
-        function pickWinner($numParticipantes, $cantidadPremios)
-        {
-            $arrayGanadores = [];
-            $indexParticipantes = $numParticipantes - 1; //hay q meterlo como variable local xq si no da error
-
-            while (count($arrayGanadores) < $cantidadPremios) {
-
-                $ganador = rand(0, $indexParticipantes);
-                // echo 'ganador:'.$ganador;
-
-
-                if (!in_array($ganador, $arrayGanadores)) {
-
-                    $arrayGanadores[] = $ganador;
-                };
-            }
-
-            return $arrayGanadores;
-        }
-
-
-        $indexGanadores = pickWinner($numParticipantes, $cantidadPremios);
-        // print_r($indexGanadores);
-
-
-        ?>
-
-        <h2> Ganadores:</h2>
-        <ol>
-            <?php
-            $i = 0;
-            foreach ($indexGanadores as $numOrder) {
-                echo '<li>' .$arrayParticipantes[$numOrder] . " " . $cuantiaPremios[$i] . '€</li>';
-                $i++;
-            };
-            ?>
-        </ol>
-
-        </div>
 
 
 
@@ -254,8 +245,6 @@
 
 
 
-
-    </section>
 
     </main>
     </div>
