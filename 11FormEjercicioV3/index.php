@@ -28,37 +28,48 @@
 
                                     <div class="mensaje">
 
-                                    <p>
+                                        <p>
 
-                                        <?php
+                                            <?php
 
-                                        if (isset($_POST['prize-qtity']) && isset($_POST['first-prize-amount']) && isset($_POST['second-prize-amount']) && isset($_POST['third-prize-amount'])) {
+                                            if (isset($_POST['prize-qtity']) && isset($_POST['first-prize-amount']) && isset($_POST['second-prize-amount']) && isset($_POST['third-prize-amount'])) {
 
 
-                                            if (($_POST['prize-qtity'] < 1) || ($_POST['prize-qtity'] > 3)) {
-                                                echo 'Por favor inserta un número de premios válido entre 1 y 3';
+                                                if (($_POST['prize-qtity'] < 1) || ($_POST['prize-qtity'] > 3)) {
+                                                    echo 'Por favor inserta un número de premios válido entre 1 y 3';
+                                                } else {
+                                                    $dataSorteo = array(
+                                                        "qtity-winners"  => array($_POST["prize-qtity"]),
+                                                        "prizes-amounts" => array(
+                                                            ($_POST["first-prize-amount"]),
+                                                            ($_POST["second-prize-amount"]),
+                                                            ($_POST["third-prize-amount"])
+                                                        ),
+                                                        "lista-participantes" => array(
+                                                            'Maria Lopez',
+                                                            'Pablo Perez',
+                                                            'José Martinez',
+                                                            'Victor Flores',
+                                                            'Marta Lozano',
+                                                            'Elena Mendez',
+
+
+
+
+                                                        )
+                                                    );
+
+                                                    echo "Gracias, tus datos se han enviado correctamente!";
+                                                }
                                             } else {
-                                                $dataSorteo = array(
-                                                    "qtity-winners"  => $_POST["prize-qtity"],
-                                                    "prizes-amounts" => array(
-                                                        ($_POST["first-prize-amount"]),
-                                                        ($_POST["second-prize-amount"]),
-                                                        ($_POST["third-prize-amount"])
-                                                    ),
-                                                    "lista-participantes" => array ()
-                                                );
-                                                
-                                                echo "Gracias, tus datos se han enviado correctamente!";
-                                            }
-                                        } else {
 
-                                            echo "<strong>Por favor, rellena el número de premiados y el monto correspondiente :</strong>";
-                                        }
-                                        ?>
+                                                echo "<strong>Por favor, rellena el número de premiados y el monto correspondiente :</strong>";
+                                            }
+                                            ?>
                                         </p>
                                     </div>
 
-                                    
+
                                     <form method="POST" action='index.php'>
 
 
@@ -156,64 +167,49 @@
                 <ol>
                     <?php
 
-                    $arrayParticipantes = array(
-                        'Maria Lopez',
-                        'Pablo Perez',
-                        'José Martinez',
-                        'Victor Flores',
-                        'Marta Lozano',
-                        'Elena Mendez',
-                    )
+
+                    foreach ($dataSorteo['lista-participantes'] as $key => $value) {
+
+
+                        echo '<li>' . $value . '</li>';
+                    }
                     ?>
 
-                
+                </ol>
 
-              
-
-                    <?php
-                    foreach ($arrayParticipantes as $participante) {
-                        echo '<li>' . $participante . '</li>';
-                    };
-                    echo '<br>';
-                    ?>
-                    
-                    </ol>
-
-
-                    
 
                 <h4>PREMIOS</h4>
 
-                <p>Se sortearan 
-                    <?php  $cantidadPremios = $dataSorteo['qtity-winners'][0];
-                
-                echo $cantidadPremios ?> premios respectivamente con un monto de:
+                <p>Se sortearan
+                    <?php $cantidadPremios = $dataSorteo['qtity-winners'][0];
+
+                    echo $cantidadPremios ?> premios respectivamente con un monto de:
 
                 <ul>
 
+                    <?php
+
+                    //print_r($dataSorteo);
+
+                    foreach ($dataSorteo['prizes-amounts'] as $key => $value) {
+
+
+                        echo '<li>' . $value . '€ </li>';
+                    }
+                    // } 
+                    ?>
+
+                </ul>
+
+
                 <?php
 
-                print_r($dataSorteo);
+                $cuantiaPremios = $dataSorteo['prizes-amounts'];
+                print_r($cuantiaPremios);
 
-                    foreach ($dataSorteo as $key) {
+                $numParticipantes = count($dataSorteo['lista-participantes']);
+                print_r($numParticipantes);
 
-                        foreach ($key as $x => $value) {
-                       
-
-                            echo '<li>' . $value . '€ </li>';
-                            }
-                        } ?>
-
-        </ul>
-
-       
-                <?php
-                
-                $cuantiaPremios = $dataSorteo['prizes-amounts'] ;
-                
-
-                $numParticipantes = count($arrayParticipantes);
-                
 
                 function pickWinner($numParticipantes, $cantidadPremios)
                 {
@@ -237,7 +233,7 @@
 
 
                 $indexGanadores = pickWinner($numParticipantes, $cantidadPremios);
-                // print_r($indexGanadores);
+                
                 ?>
 
                 <h2> Ganadores:</h2>
@@ -245,7 +241,7 @@
                     <?php
                     $i = 0;
                     foreach ($indexGanadores as $numOrder) {
-                        echo '<li>' . $arrayParticipantes[$numOrder] . " " . $cuantiaPremios[$i] . '€</li>';
+                        echo '<li>' . $dataSorteo['lista-participantes'][$numOrder] . " " . $cuantiaPremios[$i] . '€</li>';
                         $i++;
                     };
                     ?>
@@ -255,39 +251,7 @@
 
     </section>
 
-    <div>
-        <p>
-        seccion pruebas:
-        </p>
-
-       
-
-                    <?php
-                    
-
-               
-                    // array_push($dataSorteo,$arrayParticipantes);
-
-                    // echo '<br>';
-                    // echo '$dataSorteo:';
-                    
-                    // //print_r($dataSorteo);
-
-
-                    // foreach ($dataSorteo as $key) {
-                    //     echo "key: ".print_r($key);
-                    //     foreach ($key[2] as $x => $value)
-                       
-
-                    //     echo '<li>ES AQUI  key:'.$x." ".$value. '</li>';
-                    // };
-                    
-             
-
-                    ?>
-            
-
-    </div>
+    
 
     </div>
 
