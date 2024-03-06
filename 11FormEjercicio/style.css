@@ -6,20 +6,28 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+
+    
 }
 
 html, body {
     height: 100%;
     background-color: #152733;
-    overflow: hidden;
+    
+}
+
+header{
+    padding: 40px;
+    text-align: center;
 }
 
 
 .form-holder {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      /* justify-content: center;
+      align-items: center; */
       text-align: center;
       min-height: 100vh;
 }
@@ -52,6 +60,28 @@ html, body {
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
+
+.list-content{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    color:#fff;
+    width: fit-content;
+    border: 3px solid #fff;
+    padding: 8px;
+   
+}
+
+/*.list-content > ol{
+   margin:0;
+   padding:0;
+}
+
+ .list-content > li{
+    width: 50px;
+} */
 
 
 
