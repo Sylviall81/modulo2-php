@@ -205,10 +205,11 @@
                 <?php
 
                 $cuantiaPremios = $dataSorteo['prizes-amounts'];
-                print_r($cuantiaPremios);
+                //print_r($cuantiaPremios);
 
                 $numParticipantes = count($dataSorteo['lista-participantes']);
-                print_r($numParticipantes);
+                //print_r($numParticipantes);
+                $listaParticipantes = $dataSorteo['lista-participantes'];
 
 
                 function pickWinner($numParticipantes, $cantidadPremios)
@@ -241,7 +242,7 @@
                     <?php
                     $i = 0;
                     foreach ($indexGanadores as $numOrder) {
-                        echo '<li>' . $dataSorteo['lista-participantes'][$numOrder] . " " . $cuantiaPremios[$i] . '€</li>';
+                        echo '<li>' . $listaParticipantes[$numOrder] . " " . $cuantiaPremios[$i] . '€</li>';
                         $i++;
                     };
                     ?>
