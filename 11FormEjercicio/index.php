@@ -11,17 +11,131 @@
 <body>
     <div class="full-container">
         <header>
-            <h1>Bienvenid@ a tu panel de administrador</h1>
+            <h1>Bienvenid@ a tu Panel de administrador de sorteos</h1>
 
         </header>
         <main>
 
+
+            <section class="form-container">
+
+                <div class="form-body">
+                    <div class="row">
+                        <div class="form-holder">
+                            <div class="form-content">
+                                <div class="form-items">
+                                    <h3>Registro de Premios</h3>
+                                    <p>Por favor, rellena los datos:</p>
+                                    <form method="POST" action='index.php'>
+
+
+                                        <div class="col-md-12">
+                                            <label for="prize-qtity">Número de premios a repartir:</label>
+                                            <input class="form-control" type="number" name="prize-qtity" placeholder="inserta un número" required>
+                                            <!-- <div class="valid-feedback">Username field is valid!</div> -->
+                                            <!-- <div class="invalid-feedback">Campo requerido. Por favor, inserta un número.</div> -->
+
+                                        </div>
+
+
+                                        <div class="col-md-12">
+                                            <label for="prize-qtity">Indica la cuantía por premio</label>
+                                            <select name="first-prize-amount" class="form-select mt-3" required>
+                                                <option selected disabled value="">1er Premio</option>
+                                                <option value="50.000">50.000€</option>
+                                                <option value="40.000">40.000€</option>
+                                                <option value="30.000">30.000€</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-12">
+                                            <select name="second-prize-amount" class="form-select mt-3" required>
+                                                <option selected disabled value="">2o Premio</option>
+                                                <option value="20.000">20.000€</option>
+                                                <option value="15.000">15.000€</option>
+                                                <option value="10.000">10.000€</option>
+                                                <option value="0">No aplica</option>
+                                            </select>
+                                            <!-- <div class="valid-feedback">You selected a position!</div>
+                                            <div class="invalid-feedback">Please select a position!</div> -->
+                                        </div>
+                                        <div class="col-md-12">
+                                            <select name="third-prize-amount" class="form-select mt-3" required>
+                                                <option selected disabled value="">3er Premio</option>
+                                                <option value="5.000">5.000€</option>
+                                                <option value="3.000">3.000€</option>
+                                                <option value="1.000">1.000€</option>
+                                                <option value="0">No aplica</option>
+                                            </select>
+                                            <!-- <div class="valid-feedback">You selected a position!</div>
+                                            <div class="invalid-feedback">Please select a position!</div> -->
+                                        </div>
+
+
+
+
+
+
+                                        <div class="form-button mt-3">
+                                            <button id="submit" type="submit" class="btn btn-primary">Enviar</button>
+                                        </div>
+                                    </form>
+                                    <br>
+                                    <div class = 'list-content'>
+                                        
+                                        <?php
+
+                                            if (isset($_POST['prize-qtity']) && isset($_POST['first-prize-amount']) && isset($_POST['second-prize-amount']) && isset($_POST['third-prize-amount'])) {
+
+
+                                                if (($_POST['prize-qtity'] < 1) || ($_POST['prize-qtity'] > 3)) {
+                                                    echo 'Por favor inserta un número de premios válido entre 1 y 3';
+                                                } else {
+
+                                                    $dataSorteo = $_POST;
+                                                    echo "gracias, tus datos se han enviado correctamente!";
+                                                }
+                                            } else {
+                                               
+
+                                                echo "Por favor, rellena el número de premiados y el monto correspondiente";
+                                            }
+                                            ?></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
             <section class="list-content">
 
-            <h3>Usuarios Participantes:</h3>
+
+
+
+                <h3>Información del sorteo</h3>
+
+                <?php
+                $fecha_actual = date('d-m-Y');
+                ?>
+
+                <p>En el día: <?php echo $fecha_actual ?> se realiza el siguiente sorteo entre los siguientes </p>
+                <h3>PARTICIPANTES</h3>
 
                 <ol>
-
                     <?php
 
                     $arrayParticipantes = array(
@@ -32,137 +146,121 @@
                         'Marta Lozano',
                         'Elena Mendez',
                     )
-
                     ?>
 
-                    <div class="form-container">
 
-                        <?php
-                        foreach ($arrayParticipantes as $participante) {
-                            echo '<li>' . $participante . '</li>';
-                        };
 
-                        ?>
+                    <?php
+                    foreach ($arrayParticipantes as $participante) {
+                        echo '<li>' . $participante . '</li>';
+                    };
+
+                    ?>
                 </ol>
+
+                <h4>PREMIOS</h4>
+
+                <p>Se sortearan <?php echo $dataSorteo['prize-qtity'] ?> premios </p>
+                <p> respectivamente con la cantidad de :
+
+                <ul>
+
+                    <li> <?php echo $dataSorteo['first-prize-amount'] ?> €</li>
+                    <li> <?php echo $dataSorteo['second-prize-amount'] ?> €</li>
+                    <li> <?php echo $dataSorteo['third-prize-amount'] ?> €</li>
+
+
+                </ul>
+
+                </p>
 
 
 
     </div>
 
+
+
+
+
     </section>
-    <section class="form-container">
-
-        <div class="form-body">
-            <div class="row">
-                <div class="form-holder">
-                    <div class="form-content">
-                        <div class="form-items">
-                            <h3>Registro de Premios</h3>
-                            <p>Por favor, rellena los datos:</p>
-                            <form class="requires-validation" novalidate method="POST" action='index.php'>
-
-                                <div class="col-md-12">
-                                    <label for="prize-qtity">Número de premios a repartir:</label>
-                                    <input class="form-control" type="number" name="prize-qtity" placeholder="inserta un número" required>
-                                    <!-- <div class="valid-feedback">Username field is valid!</div> -->
-                                    <div class="invalid-feedback">Campo requerido. Por favor, inserta un número.</div>
-                                </div>
-
-                                <!-- <div class="col-md-12">
-                                           <input class="form-control" type="text" name="name" placeholder="Full Name" required>
-                                           <div class="valid-feedback">Username field is valid!</div>
-                                           <div class="invalid-feedback">Username field cannot be blank!</div>
-                                        </div> -->
-
-                                <!-- <div class="col-md-12">
-                                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
-                                             <div class="valid-feedback">Email field is valid!</div>
-                                             <div class="invalid-feedback">Email field cannot be blank!</div>
-                                        </div> -->
-
-                                <div class="col-md-12">
-                                    <label for="prize-qtity">Indica la cuantía por premio</label>
-                                    <select class="form-select mt-3" required>
-                                        <option selected disabled value="">1er Premio</option>
-                                        <option value="50">50.000€</option>
-                                        <option value="40">40.000€</option>
-                                        <option value="30">30.000€</option>
-                                    </select>
-                                    <!-- <div class="valid-feedback">You selected a position!</div> -->
-                                    <!-- <div class="invalid-feedback">Please select a position!</div> -->
-                                </div>
-                                <div class="col-md-12">
-                                    <select class="form-select mt-3" required>
-                                        <option selected disabled value="">2o Premio</option>
-                                        <option value="20">20.000€</option>
-                                        <option value="15">15.000€</option>
-                                        <option value="10">10.000€</option>
-                                    </select>
-                                    <!-- <div class="valid-feedback">You selected a position!</div>
-                                            <div class="invalid-feedback">Please select a position!</div> -->
-                                </div>
-                                <div class="col-md-12">
-                                    <select class="form-select mt-3" required>
-                                        <option selected disabled value="">3er Premio</option>
-                                        <option value="5">5.000€</option>
-                                        <option value="2">3.000€</option>
-                                        <option value="1">1.000€</option>
-                                    </select>
-                                    <!-- <div class="valid-feedback">You selected a position!</div>
-                                            <div class="invalid-feedback">Please select a position!</div> -->
-                                </div>
 
 
 
-                                <!-- <div class="col-md-12">
-                                          <input class="form-control" type="password" name="password" placeholder="Password" required>
-                                           <div class="valid-feedback">Password field is valid!</div>
-                                           <div class="invalid-feedback">Password field cannot be blank!</div>
-                                       </div> -->
+
+    <section class="list-content">
 
 
-                                <!-- <div class="col-md-12 mt-3">
-                                        <label class="mb-3 mr-1" for="gender">Gender: </label>
-            
-                                        <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
-                                        <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
-            
-                                        <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
-                                        <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
-            
-                                        <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
-                                        <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
-                                           <div class="valid-feedback mv-up">You selected a gender!</div>
-                                            <div class="invalid-feedback mv-up">Please select a gender!</div>
-                                        </div> -->
+        <?php
 
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                    <label class="form-check-label">confirmo que la información insertada es correcta</label>
-                                    <!-- <div class="invalid-feedback">Please confirm that the entered data are all correct!</div> -->
-                                </div>
+        $cantidadPremios = $dataSorteo['prize-qtity'];
+        $cuantiaPremios = array($dataSorteo["first-prize-amount"], $dataSorteo["second-prize-amount"], $dataSorteo["third-prize-amount"]);
+        print_r($cuantiaPremios);
 
 
-                                <div class="form-button mt-3">
-                                    <button id="submit" type="submit" class="btn btn-primary">Enviar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        $numParticipantes = count($arrayParticipantes);
+        echo 'ver numero de participantes:';
+        var_dump(count($arrayParticipantes));
+
+
+        function pickWinner($numParticipantes, $cantidadPremios)
+        {
+            $arrayGanadores = [];
+            $indexParticipantes = $numParticipantes - 1; //hay q meterlo como variable local xq si no da error
+
+            while (count($arrayGanadores) < $cantidadPremios) {
+
+                $ganador = rand(0, $indexParticipantes);
+                // echo 'ganador:'.$ganador;
+
+
+                if (!in_array($ganador, $arrayGanadores)) {
+
+                    $arrayGanadores[] = $ganador;
+                };
+            }
+
+            return $arrayGanadores;
+        }
+
+
+        $indexGanadores = pickWinner($numParticipantes, $cantidadPremios);
+        // print_r($indexGanadores);
+
+
+        ?>
+
+        <h2> Ganadores:</h2>
+        <ol>
+            <?php
+            $i = 0;
+            foreach ($indexGanadores as $numOrder) {
+                echo '<li>' .$arrayParticipantes[$numOrder] . " " . $cuantiaPremios[$i] . '€</li>';
+                $i++;
+            };
+            ?>
+        </ol>
+
         </div>
 
-    </section>
 
-    <section class="winners-container">
+
+
+
+
+
+
+
+
+
+
+
 
     </section>
 
     </main>
     </div>
 
-    <script src="scriptForm.js"></script>
+
 </body>
 
 </html>
