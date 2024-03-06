@@ -94,7 +94,7 @@ li{
     border: 3px solid #fff;
     width: 85%;
     margin: 0 auto 20px auto;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 

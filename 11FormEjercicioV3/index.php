@@ -19,7 +19,6 @@
                         <div class="form-holder">
                             <div class="form-content">
                                 <div class="form-items">
-                                    <!-- <h3>Registro de Premios</h3> -->
                                     <div class="mensaje">
                                         <p>
                                             <?php
@@ -52,7 +51,7 @@
                                             ?>
                                         </p>
                                     </div>
-                                    <form  method="POST" action='index.php' onsubmit="showDiv(event)">
+                                    <form  method="POST" action='index.php'> <!--onsubmit='showDiv(event)'-->
                                         <div class="col-md-12">
                                             <label for="prize-qtity">Número de premios:</label>
                                             <input class="form-control" type="number" name="prize-qtity" placeholder="inserta un número" required>
@@ -105,11 +104,9 @@
                                     <p>cada uno con un monto de:</p> 
                                     <ul>
                                         <?php
-                                        //print_r($dataSorteo);
                                         foreach ($dataSorteo['prizes-amounts'] as $key => $value) {
                                             echo '<li>' . $value . '€ </li>';
                                         }
-                                        // } 
                                         ?>
                                     </ul>
                                 </div>
@@ -160,14 +157,14 @@
         </main>
     </div>
 
-    <script>
+    <!-- <script>
         function showDiv(event) {
             event.preventDefault();
-            let divResultados = document.getElementById('seccion-resultados');
+            let divResultados = document.getElementsByClassName('seccion-resultados');
             divResultados.style.visibility = 'visible';
         }
 
-    </script>
+    </script> -->
 </body>
 
 </html>
