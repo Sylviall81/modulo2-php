@@ -7,6 +7,7 @@
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
+    margin:0;
 
     
 }
@@ -18,16 +19,19 @@ html, body {
 }
 
 header{
-    padding: 40px;
     text-align: center;
+    padding: 10px;
+    color: #fff;
+   
+   
 }
 
 
 .form-holder {
       display: flex;
       flex-direction: column;
-      /* justify-content: center;
-      align-items: center; */
+      justify-content: center;
+      align-items: center;
       text-align: center;
       min-height: 100vh;
 }
@@ -44,44 +48,53 @@ header{
     justify-content: center;
     -webkit-align-items: center;
     align-items: center;
-    padding: 60px;
+    padding: 30px;
 }
 
 .form-content .form-items {
     border: 3px solid #fff;
-    padding: 40px;
+    padding: 10px;
     display: inline-block;
-    width: 100%;
-    min-width: 540px;
+    width: 99%;
+    /* min-width: 540px; */
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    text-align: left;
+    /* text-align: left; */
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
+    text-align: left;
 }
 
+
+
 .list-content{
-    border-radius: 10px;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    color:#fff;
-    width: fit-content;
-    border: 3px solid #fff;
-    padding: 8px;
+    /* color:#fff;
+    border-radius: 10px;
+    border: 3px solid #fff; */
+    padding: 10px;
+    margin: 10px;
    
 }
 
-/*.list-content > ol{
-   margin:0;
-   padding:0;
+.seccion-resultados {
+
+    color: #fff;
+    gap: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#fff;
+    border-radius: 10px;
+    border: 3px solid #fff;
 }
 
- .list-content > li{
-    width: 50px;
-} */
+
 
 
 
@@ -91,6 +104,10 @@ header{
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 5px;
+}
+
+header > h1 {
+    text-align: center;
 }
 
 .form-content h3.form-title {
@@ -108,12 +125,14 @@ header{
 }
 
 
-.form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
+.form-content label {
     color: #fff;
+    text-align: left;
+
 }
 
-.form-content input[type=text], .form-content input[type=password], .form-content input[type=email],.form-content input[type=number], .form-content select {
-    width: 95%;
+.form-content input[type=text],.form-content input[type=number], .form-content select {
+    width: 99%;
     padding: 9px 20px;
     text-align: left;
     border: 0;
@@ -130,9 +149,11 @@ header{
 
 
 .btn-primary{
-    background-color: #6C757D;
+    background-color: greenyellow;
+    width: 99%;
     outline: none;
     border: 0px;
+    border-radius: 10px;
      box-shadow: none;
 }
 
@@ -147,7 +168,7 @@ header{
     background-color: #fff;
     color: #152733;
     border-radius: 10px;
-    width:95%;
+    width:99%;
     /* padding: 0.5px; */
     text-align: center;
 }
