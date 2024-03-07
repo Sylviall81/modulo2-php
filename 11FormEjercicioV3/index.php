@@ -23,7 +23,9 @@
                                 <div class="form-items">
                                     <div class="mensaje">
                                         <p>
-                                            <?php
+                                            <?php 
+
+                                            
                                             if (isset($_POST['prize-qtity']) && isset($_POST['first-prize-amount']) && isset($_POST['second-prize-amount']) && isset($_POST['third-prize-amount'])) {
                                                 if (($_POST['prize-qtity'] < 1) || ($_POST['prize-qtity'] > 3)) {
                                                     echo 'Por favor inserta un número de premios válido entre 1 y 3';
@@ -133,7 +135,7 @@
                                         $arrayGanadores = [];
                                         $indexParticipantes = $numParticipantes - 1;
                                         while (count($arrayGanadores) < $cantidadPremios) {
-                                            $ganador = rand(0, $indexParticipantes);
+                                            $ganador = rand(0, $indexParticipantes);//se podria utilizar shuffle en vez de rand
                                             if (!in_array($ganador, $arrayGanadores)) {
                                                 $arrayGanadores[] = $ganador;
                                             }

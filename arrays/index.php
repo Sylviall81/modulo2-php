@@ -128,6 +128,94 @@
 
     ?>
     </p>
+    <h3>6.Eliminar elemento unset(elemento[pos])</h3>
+    <p>
+
+    Eliminar elemento 5:Pasta
+        <?php
+
+        unset($shoppingList[5]);
+        echo 'verifico que se elimino:<br>';
+        print_r($shoppingList);
+        echo "unset elimina pero no mueve el indice";
+        echo $shoppingList[5];
+        
+        ?>
+
+        <h3>7.array_pop: </h3>
+        <p> modfica el originaleliminando el ultimo elemento y hace un array con el elemento eliminado</p>
+
+        <?php
+        $shortShoppingList = array_pop($shoppingList);
+        echo "Array nuevo:<br>";
+        print_r($shortShoppingList);
+        echo "<br>";
+        echo "Array original:";
+        print_r($shoppingList);
+?>
+
+        
+
+   
+    </p>
+
+    <h3>Ejercicio</h3>
+
+<p>Crear un array con nombres hacer un foreach y pasar por todos 
+    los nombres enviar un mensaje solo a las personas con inicial L</p>
+
+
+
+
+
+    <?php
+
+    
+
+    $listaNombres = array ("María","Pedro","Lucía","Mariana","Luís","José","Fernando");
+    print_r($listaNombres);
+    echo '<br>';
+    echo '<br>';
+
+    echo '1era forma: un if (string[0] == "l")<br>';
+
+
+    foreach($listaNombres as $nombre){
+
+        $nombreLower = strtolower($nombre);//para bajar a minuscula
+
+        // echo "verlos todos en minuscula:";
+        // echo $nombreLower.'<br>';
+        // echo '<br>';
+
+      if ($nombreLower[0]== 'l'){
+        echo 'Hola '.$nombreLower.'<br>';
+      }
+
+    }
+
+    echo '<br>';
+
+    echo "2a forma: con str_starts_with(string,'caracter(es)') <br>";
+
+    foreach($listaNombres as $nombre){
+
+        $nombreSmall = strtolower($nombre);//para bajar a minuscula
+
+       
+
+      if (str_starts_with($nombreSmall,'l')){
+        echo 'Hola '.$nombreSmall.'<br>';
+      }
+
+    }
+    
+    
+    
+    
+    
+    
+    ?>
 
 
 </body>
