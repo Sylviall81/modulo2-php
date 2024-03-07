@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteo Admin Panel</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="full-container">
         <header>
@@ -51,7 +53,7 @@
                                             ?>
                                         </p>
                                     </div>
-                                    <form  method="POST" action='index.php'> <!--onsubmit='showDiv(event)'-->
+                                    <form id= "myForm" method="POST" action='index.php' > <!--onsubmit='showDiv(event)'-->
                                         <div class="col-md-12">
                                             <label for="prize-qtity">Número de premios:</label>
                                             <input class="form-control" type="number" name="prize-qtity" placeholder="inserta un número" required>
@@ -85,13 +87,13 @@
                                         </div>
                                         <div class="form-button mt-3">
                                             <br>
-                                            <button id="submit" type="submit" class="btn btn-primary">Enviar</button>
+                                            <button id="submit-button" type="submit" class="btn btn-primary">Enviar</button>
                                             <br>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <section id="seccion-resultados" class= "seccion-resultados">
+                            <section id="resultados" class="seccion-resultados">
                                 <div class="info-sorteo list-content">
                                     <h3>DATOS DEL SORTEO</h3>
                                     <?php
@@ -100,8 +102,8 @@
                                     ?>
                                     <p>Fecha: <?php echo $fecha_actual ?></p>
                                     <h3>PREMIOS</h3>
-                                    <p>De acuerdo a la información insertada se sortean <?php echo $cantidadPremios ?> premios </p> 
-                                    <p>cada uno con un monto de:</p> 
+                                    <p>De acuerdo a la información insertada se sortean <?php echo $cantidadPremios ?> premios </p>
+                                    <p>cada uno con un monto de:</p>
                                     <ul>
                                         <?php
                                         foreach ($dataSorteo['prizes-amounts'] as $key => $value) {
@@ -126,7 +128,8 @@
                                     $cuantiaPremios = $dataSorteo['prizes-amounts'];
                                     $numParticipantes = count($dataSorteo['lista-participantes']);
                                     $listaParticipantes = $dataSorteo['lista-participantes'];
-                                    function pickWinner($numParticipantes, $cantidadPremios) {
+                                    function pickWinner($numParticipantes, $cantidadPremios)
+                                    {
                                         $arrayGanadores = [];
                                         $indexParticipantes = $numParticipantes - 1;
                                         while (count($arrayGanadores) < $cantidadPremios) {
@@ -151,18 +154,23 @@
                                 </div>
                             </section>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </section>
         </main>
     </div>
 
     <!-- <script>
-        function showDiv(event) {
-            event.preventDefault();
-            let divResultados = document.getElementsByClassName('seccion-resultados');
-            divResultados.style.visibility = 'visible';
-        }
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita que el formulario se envíe normalmente
+
+      // Cambiar la visibilidad del div después de enviar el formulario
+      document.getElementById('resultados').style.visibility = 'visible';
+
+        });
+
+
 
     </script> -->
 </body>

@@ -85,17 +85,6 @@ li{
    
 }
 
-.seccion-resultados {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    border: 3px solid #fff;
-    width: 85%;
-    margin: 0 auto 20px auto;
-    /* visibility: hidden; */
-}
 
 
 
@@ -181,6 +170,23 @@ header > h1 {
 .info-sorteo, .info-participantes, .info-ganadores{
     text-align: center;
  
+}
+
+
+.seccion-resultados {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    border: 3px solid #fff;
+    width: 85%;
+    margin: 0 auto 20px auto;
+    /* visibility: hidden; */
+}
+
+#resultados{
+    visibility: hidden;
 }
 
 
