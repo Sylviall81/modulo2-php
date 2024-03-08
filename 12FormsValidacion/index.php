@@ -14,20 +14,21 @@
     div{
         width:30%;
         border: black solid 1px;
-        border-radius: 10px;
+       border-radius: 10px;
         padding: 12px;
+        margin: 20px auto;
     }
     form{
         display:flex;
         flex-direction: column;
+        gap: 6px;
         font-family:"Roboto",sans-serif; 
+       
     }
 
-    input[type="text"], input[type="email"], input[type="submit"], input[type="url"], select, textarea {
-        border-radius: 10px;
+    /* input[type="text"], input[type="email"], input[type="submit"], input[type="url"], select, textarea {
         margin: 3px;
-
-    }
+    } */
 
 </style>
 
@@ -41,9 +42,9 @@
         Name: <input type="text" name="name" value="" required><br>
         E-mail: <input type="text" name="email"><br>
         Website:<input type='url' name="url"><br>
-        Gender:<select name="gender">
-            <option value="Fem">Fem</option>
-            <option value="Masc" selected>Masc</option>
+        Gender:<select name="gender" required>
+            <option value="Fem" >Fem</option>
+            <option value="Masc">Masc</option>
             <option value="Non-binary">Non-binary</option>
             <option value="Non-disclosure">Prefer not to say</option>
         </select>
@@ -57,18 +58,23 @@
 
     <?php
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['name']) && isset($_POST['gender']) && isset($_POST['email']) && isset($_POST['url']))  {
         $name = test_input($_POST["name"]);
         $email = test_input($_POST["email"]);
         $website = test_input($_POST["url"]);
         $gender = test_input($_POST["gender"]);
         $comments = test_input($_POST["comments"]);
+
+    } else{
+        echo "Please fill in all the required info";
     };
 
     function test_input($data)
     {
         $data = trim($data);
-        $data = stripslashes($data);
+        $data = stripslashes($data);//quita los slash pa q no te escapen o inyecten code
         $data = htmlspecialchars($data);
         return $data;
     }
@@ -77,6 +83,12 @@
 
     <h3>Collected DATA</h3>
     <ul>
+       <li><?php echo $name; ?></li>
+       <li><?php echo $email; ?></li>
+       <li><?php echo $website; ?></li>
+       <li><?php echo $gender; ?></li>
+       <li><?php echo $comments; ?></li>
+       
 
     </ul>
 
