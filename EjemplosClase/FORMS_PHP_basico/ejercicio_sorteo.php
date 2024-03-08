@@ -13,9 +13,10 @@
     if (isset($_POST["name"]) && isset($_POST["email"]) && $_POST['name']!='' && $_POST['email']!='') { 
         $listado = Array('nombre'=>$_POST["name"],'email'=>$_POST["email"]);
         $listadoCompleto = array_push($listado,$_POST["listado"]);
-        foreach( $listadoCompleto as $clave => $concursante){
-            echo "$clave: $concursante";
-        }
+        echo $listadoCompleto;
+        // //foreach( $listadoCompleto as $clave => $concursante){
+        //     echo "$clave: $concursante";
+        // }
 
     }
     if (isset($_POST['premios'])){
