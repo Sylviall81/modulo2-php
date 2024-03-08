@@ -12,8 +12,8 @@
     <?php
 
 $listaCoches = array(
-    "modelo"=> "Solterra",
-    "marca" => "Subaru",
+    "modelo"=> array("Solterra"),
+    "marca" => array ("Subaru"),
     "colores"=> array("verde","azul", "rojo"),
     "año" => array ("2008", "2000")
 
@@ -24,7 +24,7 @@ print_r($listaCoches);
 echo "<br>";
 
 foreach($listaCoches as $key){
-    // print_r ( "key: ".$key.'<br>');
+    print_r($key);
     foreach($key as $categoria => $val){
         echo "<br>";
         echo $categoria." ".$val."<br>";
