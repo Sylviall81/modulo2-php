@@ -53,6 +53,8 @@ echo '<strong> RESULTADO</strong></strong><br>';
 echo "el numero de puntos es: ".$dotCount."<br>";
 echo "el numero de almohadillas es: ".$hashtagCount."<br>";
 
+//se puede hacer con array_count_value
+
 ?>
     
 </body>

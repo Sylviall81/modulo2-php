@@ -63,27 +63,24 @@
 
 
     foreach ($estudiantes as $estudiante) {
-
         echo "estudiante :" . $estudiante['nombre'] . '<br>';
-
-        foreach ($estudiante as $key => $val) {
-            echo "notas :" . $key . '<br>';
-
-
-            foreach ($estudiante as $nota => $val) {
+        foreach ($estudiante as $data => $value) {
+            echo $key." y ".$value. '<br>';
+            //  foreach ( $key as $val) {
+            //     echo $val. '<br>';
 
 
-                echo " notas: " . $nota . ',';
-                echo '<br>';
-                echo "suma notas: " . array_sum($estudiante['notas']) . '<br>';
-                echo '<br>';
-                echo "largo de array: " . count($estudiante['notas']) . '<br>';
-                echo '<br>';
-                echo "media: " . array_sum($estudiante['notas']) / count($estudiante['notas']);
-            }
+            // //     echo " notas: " . $nota . ',';
+            // //     echo '<br>';
+            // //     echo "suma notas: " . array_sum($estudiante['notas']) . '<br>';
+            // //     echo '<br>';
+            // //     echo "largo de array: " . count($estudiante['notas']) . '<br>';
+            // //     echo '<br>';
+            // //     echo "media: " . array_sum($estudiante['notas']) / count($estudiante['notas']);
+            // // }
+            // }
         }
     }
-
 
 
 
