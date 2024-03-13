@@ -11,6 +11,10 @@
 </head>
 <style>
 
+    body{
+        font-family: "Roboto",sans-serif;
+    }
+
     div{
         width:30%;
         border: black solid 1px;
@@ -22,7 +26,7 @@
         display:flex;
         flex-direction: column;
         gap: 6px;
-        font-family:"Roboto",sans-serif; 
+        
        
     }
 
@@ -40,9 +44,10 @@
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> <!--htmlspecialchars evita q te metan caracteres q no son por script te inyectan codigo-->
         Name: <input type="text" name="name" value="" required><br>
-        E-mail: <input type="text" name="email"><br>
+        E-mail: <input type="text" name="email"required><br>
         Website:<input type='url' name="url"><br>
-        Gender:<select name="gender" required>
+        Gender Orientation:<select name="gender" required>
+            <option selected disabled>Pick an option</option>
             <option value="Fem" >Fem</option>
             <option value="Masc">Masc</option>
             <option value="Non-binary">Non-binary</option>
@@ -60,12 +65,16 @@
 
 
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['name']) && isset($_POST['gender']) && isset($_POST['email']) && isset($_POST['url']))  {
+
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['name']) && isset($_POST['gender']) && isset($_POST['email']))  {
         $name = test_input($_POST["name"]);
         $email = test_input($_POST["email"]);
         $website = test_input($_POST["url"]);
         $gender = test_input($_POST["gender"]);
         $comments = test_input($_POST["comments"]);
+
+       
 
     } else{
         echo "Please fill in all the required info";
@@ -88,9 +97,19 @@
        <li><?php echo $website; ?></li>
        <li><?php echo $gender; ?></li>
        <li><?php echo $comments; ?></li>
-       
+       <li><?php echo $comments; ?></li>
 
     </ul>
+
+    <p><?php
+
+    // var_dump($_SESSION);
+    // foreach($_SESSION as $key => $value){
+    //         echo $key." ".$value."</br>";
+
+
+    // } ?>
+    </p>
 
 </body>
 
