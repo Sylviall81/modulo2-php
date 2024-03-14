@@ -1,3 +1,9 @@
+<?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +43,8 @@
 
                                         <p><?php
 
+                                        $listaParticipantes="";
+
                                             if (!isset($_POST['participante'])) {
 
                                                 echo "<p><strong>Por favor ingresa un nómbre válido</strong></p>";
@@ -54,12 +62,18 @@
 
                                                 fwrite($archivoLista, $concursante."\n");
 
+                                                $listaParticipantes = file_get_contents("lista.txt");
+                                               // echo $listaParticipantes;
+
 
                                             }
+                                            ?>
 
 
-                                            ?> El nombre del concursante : <?php $concursante?> ha sido añadido a la lista de participantes</p>
-                                            <p>Hasta ahora esta es la lista de participantes:<?php echo file_get_contents("lista.txt")?></p>
+
+
+                                            <p> El concursante : <?php $concursante?> <br>ha sido añadido a la lista de participantes</p> <br>
+                                            <p>Lista de participantes:<?php $listaParticipantes?></p>
 
                                         
 
