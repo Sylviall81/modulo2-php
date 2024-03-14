@@ -108,13 +108,14 @@ error_reporting(E_ALL);
 
         //comment (me da problema el comment)
 
-        if (!isset($_POST["comment"])){
+        // if (($_POST["comment"])){
 
-            $commentErr = "Comment is required";
-        } else {
+        //     $commentErr = "Comment is required";
+        // } else {
 
-            $comment = test_input($_POST["comment"]);
-        }
+        //     $comment = test_input($_POST["comment"]);
+
+        // }
 
         if (($_POST["gender"])) {
             $genderErr = "Gender is required";
@@ -209,10 +210,12 @@ error_reporting(E_ALL);
                     
                     $ruta = "user-info/".$name."-".$email.".txt";
                     $archivo = fopen($ruta, "x");
-                    $textcontent = "Los datos del usuario son: Nombre: ".$name." Email: ".$email." Web:".$website." Comentarios: ".$comment;
+                    $textcontent = "Los datos del usuario son: Nombre: ".$name." Email: ".$email." Web:".$website." Gender: ".$gender." Comentarios: ".$comment." Profile Pic File name: ".$imageName;
                     
                     fwrite($archivo, $textcontent);
                     echo file_get_contents($ruta);
+
+                    fclose($archivo);
                     
                     
 
