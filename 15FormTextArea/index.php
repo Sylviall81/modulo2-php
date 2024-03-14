@@ -218,10 +218,7 @@ error_reporting(E_ALL);
             </ul>
 
             <?php 
-
-
-                    
-                    $ruta = "user-info/".$name."-".$email.".txt";
+                     $ruta = "user-info/".$name."-".$email.".txt";
                     $archivo = fopen($ruta, "x");
                     $textcontent = "Los datos del usuario son: Nombre: ".$name." Email: ".$email." Web:".$website." Gender: ".$gender." Comentarios: ".$comment." Profile Pic File name: ".$imageName;
                     
@@ -229,18 +226,9 @@ error_reporting(E_ALL);
                     echo file_get_contents($ruta);
 
                     fclose($archivo);
-                    
-                    
-
-
                     ?>
 
 
-
-
-
-
-        
         
            <?php
                            
