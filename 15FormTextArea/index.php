@@ -81,7 +81,7 @@ error_reporting(E_ALL);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        //validacion nombre si esta vacio pide q es requerido sie sta lleno llama la funcion "sanear";
+        //validacion nombre si esta vacio pide q es requerido si esta lleno llama la funcion "sanear";
         if (empty($_POST["name"])) {
 
             $nameErr = "Name is required";
@@ -108,13 +108,13 @@ error_reporting(E_ALL);
 
         //comment (me da problema el comment)
 
-        // if (test_input($_POST["comment"]) == " ") {
+        if (!isset($_POST["comment"])){
 
-        //     $commentErr = "Comment is required";
-        // } else {
+            $commentErr = "Comment is required";
+        } else {
 
-        //     $comment = test_input($_POST["comment"]);
-        // }
+            $comment = test_input($_POST["comment"]);
+        }
 
         if (($_POST["gender"])) {
             $genderErr = "Gender is required";
@@ -162,9 +162,12 @@ error_reporting(E_ALL);
                 </select>
             </label>
 
-            <img src="" alt="">
+            <label for="comments">Comentarios:</label>
+            <textarea name="comments" id="" cols="30" rows="10"></textarea>
+            
 
             <input type="file" name="profile-pic" id="profile-pic">
+
             <input type="submit" value="enviar" name="submit">
 
             <?php
@@ -191,6 +194,7 @@ error_reporting(E_ALL);
                 <li><?php echo $email; ?></li>
                 <li><?php echo $website; ?></li>
                 <li><?php echo $gender; ?></li>
+                <li><?php echo $comment; ?></li>
                 <li>Nombre de archivo:<?php echo $imageName; ?></li>
                 <li>
                    <img src="uploaded-files/<?php echo $imageName ?>" alt="user profile image">
@@ -198,49 +202,44 @@ error_reporting(E_ALL);
                 </li>
 
             </ul>
+
+            <?php 
+
+
+                    
+                    $ruta = "user-info/".$name."-".$email.".txt";
+                    $archivo = fopen($ruta, "x");
+                    $textcontent = "Los datos del usuario son: Nombre: ".$name." Email: ".$email." Web:".$website." Comentarios: ".$comment;
+                    
+                    fwrite($archivo, $textcontent);
+                    echo file_get_contents($ruta);
+                    
+                    
+
+
+                    ?>
+
+
+
+
+
+
+        
         
            <?php
                            
        } else{
 
-               echo "<h3>Lo sentimos ha habido un problema al cargar tu imagen, vuelve a intentarlo</h3>";
+               echo "<h3>Lo sentimos ha habido un problema al en el envío de tu formulario, por favor intenta de nuevo</h3>";
            }
-
+        }
 ?>
-            }
+            
 
-            //  if (move_uploaded_file($_FILES["profile-pic"]["tmp_name"], 'uploaded-files/'.$imageName)){
-	        //         echo "<h3>El archivo se ha cargado correctamente</h1>";
-
-            if (move_uploaded_file($_FILES["profile-pic"]["tmp_name"], "uploaded-files/".$imageName )){
-                         echo "<h3>El archivo se ha cargado correctamente</h3>";
-
-                    ?>
+           
 
                     
-                     <h3><?php echo $title; ?></h3>
-                     <ul>
-                         <li><?php echo $name; ?></li>
-                         <li><?php echo $email; ?></li>
-                         <li><?php echo $website; ?></li>
-                         <li><?php echo $gender; ?></li>
-                         <li>Nombre de archivo:<?php echo $imageName; ?></li>
-                         <li>
-                            <img src="uploaded-files/<?php echo $imageName ?>" alt="user profile image">
-                            <video src="uploaded-files/<?php echo $imageName ?>"></video>
-                         </li>
-
-                     </ul>
-                 
-                    <?php
-                                    
-                } else{
-
-                        echo "<h3>Lo sentimos ha habido un problema al cargar tu imagen, vuelve a intentarlo</h3>";
-                    }
-
-    ?>
-
+                     
         </form>
     </div>
 
