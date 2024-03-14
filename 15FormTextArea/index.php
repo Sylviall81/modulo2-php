@@ -77,7 +77,8 @@ error_reporting(E_ALL);
 
     // define variables and set to empty values
     $nameErr = $emailErr = $genderErr = $commentErr = $websiteErr = "";
-    $title = $name = $email = $gender = $comment = $website = "";
+    $title = $name = $email = $gender = $website = "";
+    $comment = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -108,16 +109,29 @@ error_reporting(E_ALL);
 
         //comment (me da problema el comment)
 
-        // if (($_POST["comment"])){
+        //  if (!isset($_POST["comment"]) || empty($_POST("comment"))){
 
-        //     $commentErr = "Comment is required";
+        //   $commentErr = "Comment is required";
         // } else {
 
-        //     $comment = test_input($_POST["comment"]);
+        //      $comment = $_POST["comment"];
 
-        // }
+        //  } * db_escape($_POST['comment'])
 
-        if (($_POST["gender"])) {
+        // if (isset($_POST["comment"])){ 
+
+        //     $message = test_input(($_POST["comment"]));
+
+        // } else  if
+
+
+
+        //     if(empty($_POST['_fullMessage'])){ echo "* agrega el campo vacio
+        //     "; } }
+
+
+
+        if (!isset($_POST["gender"])) {
             $genderErr = "Gender is required";
         } else {
             $gender = test_input($_POST["gender"]);
@@ -163,8 +177,8 @@ error_reporting(E_ALL);
                 </select>
             </label>
 
-            <label for="comments">Comentarios:</label>
-            <textarea name="comments" id="" cols="30" rows="10"></textarea>
+            <label for="comment">Comentarios:</label>
+            <textarea name="comment" id="" cols="30" rows="10"></textarea>
             
 
             <input type="file" name="profile-pic" id="profile-pic">
@@ -173,8 +187,7 @@ error_reporting(E_ALL);
 
             <?php
 
-            // $_FILES['profile-pic'];
-            // $imageName="";
+            
 
             if (isset($_FILES['profile-pic'])){
                 
@@ -195,7 +208,7 @@ error_reporting(E_ALL);
                 <li><?php echo $email; ?></li>
                 <li><?php echo $website; ?></li>
                 <li><?php echo $gender; ?></li>
-                <li><?php echo $comment; ?></li>
+                <li><?php echo $comment = test_input($_POST["comment"]); ?></li>
                 <li>Nombre de archivo:<?php echo $imageName; ?></li>
                 <li>
                    <img src="uploaded-files/<?php echo $imageName ?>" alt="user profile image">
