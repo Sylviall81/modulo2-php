@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="form-holder">
                             <div class="form-content">
-                                
+
                                 <div class="form-items">
                                     <h3>Registro de Premios</h3>
                                     <p>Por favor, rellena los datos:</p>
@@ -32,7 +32,7 @@
 
                                         <div class="col-md-12">
                                             <label for="prize-qtity">1.¿Cuántos Premios quieres repartir? <br>(elige un número del 1 al 3)
-                                        </label>
+                                            </label>
                                             <input class="form-control" type="number" name="prize-qtity" placeholder="inserta un número" required>
                                             <!-- <div class="valid-feedback">Username field is valid!</div> -->
                                             <!-- <div class="invalid-feedback">Campo requerido. Por favor, inserta un número.</div> -->
@@ -97,13 +97,22 @@
 
                                                 $dataSorteo = $_POST;
                                                 echo "gracias, tus datos se han enviado correctamente!";
+                                        ?>
+
+                                                <center>
+                                                    <h2>
+                                                        <a href="#ganadores">Ver Ganadores</a>
+                                                    </h2>
+                                                </center>
+                                        <?php
                                             }
                                         } else {
 
 
                                             echo "Por favor, rellena el número de premiados y el monto correspondiente";
                                         }
-                                        ?></div>
+                                        ?>
+                                    </div>
 
                                 </div>
                             </div>
@@ -141,14 +150,14 @@
                 <ol>
                     <?php
 
-                        //require_once ('lista.txt');
+                    //require_once ('lista.txt');
 
-                        $listaParticipantes = file_get_contents("lista.txt");
-                                                                                             
-                        $arrayParticipantes = explode("\n", $listaParticipantes);
+                    $listaParticipantes = file_get_contents("lista.txt");
+
+                    $arrayParticipantes = explode("\n", $listaParticipantes);
 
 
-                   
+
                     foreach ($arrayParticipantes as $participante) {
                         echo '<li>' . $participante . '</li>';
                     };
@@ -156,7 +165,7 @@
                     ?>
                 </ol>
 
-                <h4>PREMIOS</h4>
+                <h2>PREMIOS</h2>
 
                 <p>Se sortearan <?php echo $dataSorteo['prize-qtity'] ?> premios. Cada uno de los premios será por la cantidad de:
 
@@ -204,12 +213,11 @@
                     return $arrayGanadores;
                 }
 
-
                 $indexGanadores = pickWinner($numParticipantes, $cantidadPremios);
                 // print_r($indexGanadores);
                 ?>
 
-                <h2> Ganadores:</h2>
+                <h2 id="ganadores"> GANADORES:</h2>
                 <ol>
                     <?php
                     $i = 0;
