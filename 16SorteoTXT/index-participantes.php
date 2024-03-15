@@ -41,16 +41,19 @@ error_reporting(E_ALL);
                                             <button id="submit" type="submit" class="btn btn-primary">Enviar</button>
                                         </div>
 
-                                        <p><?php
+                                        <?php
 
                                         $listaParticipantes="";
 
-                                            if (!isset($_POST['participante'])) {
+                                        $participante= "";
 
+                                            if ($_POST['participante'] == ""|| !isset($_POST['participante'])) {
                                                 echo "<p><strong>Por favor ingresa un nómbre válido</strong></p>";
+                                            
                                             } else {
 
-                                                $concursante = test_input($_POST['participante']);
+
+                                                $participante = test_input($_POST['participante']);
 
                                                
 
@@ -60,20 +63,23 @@ error_reporting(E_ALL);
                                                     $archivoLista = fopen("lista.txt","w");
                                                 }
 
-                                                fwrite($archivoLista, $concursante."\n");
+                                                fwrite($archivoLista, $participante."\n");
 
                                                 $listaParticipantes = file_get_contents("lista.txt");
                                                // echo $listaParticipantes;
 
-
+                                               echo $listaParticipantes;
+                                               echo $participante;
                                             }
+
+
                                             ?>
 
 
 
 
-                                            <p> El concursante : <?php $concursante?> <br>ha sido añadido a la lista de participantes</p> <br>
-                                            <p>Lista de participantes:<?php $listaParticipantes?></p>
+                                            <p> El usuario : <?php echo $participante?> <br>ha sido añadido a la lista de participantes</p> <br>
+                                            <p>Lista de participantes:<?php echo $listaParticipantes?></p>
 
                                         
 
