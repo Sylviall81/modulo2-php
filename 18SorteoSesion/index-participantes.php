@@ -28,7 +28,7 @@ if(isset($_GET["logout"])){
     <div class="full-container">
         <header>
             <h1>Bienvenid@ a tu Panel de administrador de sorteos</h1>
-            <a href="index-participantes.php?logout=true">Logout</a>
+            <a href="index-participantes.php?logout=true">Reset Lista</a>
 
         </header>
         <main>
@@ -88,20 +88,22 @@ if(isset($_GET["logout"])){
                                           
                                             <?php 
 
-                                            print_r($_SESSION['participantes']);
-                                            var_dump($_SESSION)
+                                           
 
-                                            // foreach ($arrayParticipantes as $participante) {
-                                            //     echo $participante . "<br>";
-                                            // }
+                                            foreach ($_SESSION['participantes'] as $participante) {
+                                                echo $participante . "<br>";
+                                            }
                                             
                                             ?></p>
 
                                             <h2><a href="./index-sorteo.php">
 
-                                            Ir al Sorteo
+                                            Realizar Sorteo
 
                                             </a></h2>
+
+                                            
+
 
                                         
 

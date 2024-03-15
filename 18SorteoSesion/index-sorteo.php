@@ -235,6 +235,12 @@ session_start();
 
     </div>
 
+    <h2><a href="index-participantes.php?logout=true">
+
+                                           RESET
+
+                                            </a></h2>
+
 
     </section>
     </div>
