@@ -44,7 +44,7 @@ error_reporting(E_ALL);
                                         <?php
 
                                         $listaParticipantes="";
-                                        $arrayParticipantes = [];
+                                        $arrayParticipantes = array();
 
                                         $participante= "";
 
