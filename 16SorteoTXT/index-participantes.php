@@ -66,20 +66,24 @@ error_reporting(E_ALL);
                                                 fwrite($archivoLista, $participante."\n");
 
                                                 $listaParticipantes = file_get_contents("lista.txt");
-                                               // echo $listaParticipantes;
+                                                                                             
+                                               $arrayParticipantes = explode("\n", $listaParticipantes);
 
-                                               echo $listaParticipantes;
-                                               echo $participante;
                                             }
-
 
                                             ?>
 
-
-
-
                                             <p> El usuario : <?php echo $participante?> <br>ha sido añadido a la lista de participantes</p> <br>
-                                            <p>Lista de participantes:<?php echo $listaParticipantes?></p>
+                                            <p>Lista de participantes: <br><?php 
+
+                                            foreach ($arrayParticipantes as $participante) {
+                                                echo $participante . "<br>";
+                                            }
+                                            
+                                            
+                                            
+                                            
+                                            ?></p>
 
                                         
 
