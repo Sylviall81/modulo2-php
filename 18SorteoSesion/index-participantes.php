@@ -7,7 +7,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 
-if(isset($_GET["logout"])){
+if(isset($_GET["reset"])){
     session_destroy();
     header("Location: index-participantes.php");
     exit();
@@ -28,7 +28,7 @@ if(isset($_GET["logout"])){
     <div class="full-container">
         <header>
             <h1>Bienvenid@ a tu Panel de administrador de sorteos</h1>
-            <a href="index-participantes.php?logout=true">Reset Lista</a>
+            <a href="index-participantes.php?reset=true">Reset Lista</a>
 
         </header>
         <main>

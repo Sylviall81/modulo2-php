@@ -155,9 +155,6 @@ session_start();
                 <ol>
                     <?php
 
-                    //require_once ('lista.txt');
-
-                    // $listaParticipantes = file_get_contents("lista.txt");
 
                     $arrayParticipantes = $_SESSION['participantes'];
 
@@ -172,7 +169,7 @@ session_start();
 
                 <h2>PREMIOS</h2>
 
-                <p>Se sortearan <?php echo $dataSorteo['prize-qtity'] ?> premios. Cada uno de los premios será por la cantidad de:
+                <p>Se sortearan <?php echo $dataSorteo['prize-qtity'] ?> premios. Cada uno por la cantidad de:
 
                 <ul>
 
@@ -235,7 +232,7 @@ session_start();
 
     </div>
 
-    <h2><a href="index-participantes.php?logout=true">
+    <h2><a href="index-participantes.php?reset=true">
 
                                            RESET
 
