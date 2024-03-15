@@ -31,16 +31,18 @@
 
 
                                         <div class="col-md-12">
-                                            <label for="prize-qtity">Número de premios a repartir:</label>
+                                            <label for="prize-qtity">1.¿Cuántos Premios quieres repartir? <br>(elige un número del 1 al 3)
+                                        </label>
                                             <input class="form-control" type="number" name="prize-qtity" placeholder="inserta un número" required>
                                             <!-- <div class="valid-feedback">Username field is valid!</div> -->
                                             <!-- <div class="invalid-feedback">Campo requerido. Por favor, inserta un número.</div> -->
 
                                         </div>
+                                        <br>
 
 
                                         <div class="col-md-12">
-                                            <label for="prize-qtity">Indica la cuantía por premio</label>
+                                            <label for="prize-qtity">2.Indica la cuantía por premio</label>
                                             <select name="first-prize-amount" class="form-select mt-3" required>
                                                 <option selected disabled value="">1er Premio</option>
                                                 <option value="50.000">50.000€</option>
@@ -139,19 +141,14 @@
                 <ol>
                     <?php
 
-                    $arrayParticipantes = array(
-                        'Maria Lopez',
-                        'Pablo Perez',
-                        'José Martinez',
-                        'Victor Flores',
-                        'Marta Lozano',
-                        'Elena Mendez',
-                    )
-                    ?>
+                        //require_once ('lista.txt');
+
+                        $listaParticipantes = file_get_contents("lista.txt");
+                                                                                             
+                        $arrayParticipantes = explode("\n", $listaParticipantes);
 
 
-
-                    <?php
+                   
                     foreach ($arrayParticipantes as $participante) {
                         echo '<li>' . $participante . '</li>';
                     };
@@ -161,7 +158,7 @@
 
                 <h4>PREMIOS</h4>
 
-                <p>Se sortearan <?php echo $dataSorteo['prize-qtity'] ?> premios respectivamente con la cantidad de :
+                <p>Se sortearan <?php echo $dataSorteo['prize-qtity'] ?> premios. Cada uno de los premios será por la cantidad de:
 
                 <ul>
 

@@ -44,6 +44,7 @@ error_reporting(E_ALL);
                                         <?php
 
                                         $listaParticipantes="";
+                                        $arrayParticipantes = [];
 
                                         $participante= "";
 
@@ -74,16 +75,22 @@ error_reporting(E_ALL);
                                             ?>
 
                                             <p> El usuario : <?php echo $participante?> <br>ha sido añadido a la lista de participantes</p> <br>
-                                            <p>Lista de participantes: <br><?php 
+                                            <p> <br><?php 
 
-                                            foreach ($arrayParticipantes as $participante) {
-                                                echo $participante . "<br>";
-                                            }
+                                            // foreach ($arrayParticipantes as $participante) {
+                                            //     echo $participante . "<br>";
+                                            // }
                                             
                                             
                                             
                                             
                                             ?></p>
+
+                                            <h2><a href="./index-sorteo.php">
+
+                                            Ir al Sorteo
+
+                                            </a></h2>
 
                                         
 
