@@ -13,6 +13,8 @@
     
 }
 
+
+
 html, body {
     height: 100%;
     background-color: #152733;
@@ -45,10 +47,10 @@ li{
 .form-holder .form-content {
     position: relative;
     /* text-align: center; */
-    display: -webkit-box;
+    /* display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex;
+    display: -webkit-flex; */
     display: flex;
     /* -webkit-justify-content: center; */
     justify-content: center;
@@ -69,7 +71,7 @@ li{
     /* text-align: left; */
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    text-align: left;
+    /* text-align: left; */
     overflow-x: hidden;
 }
 
@@ -144,16 +146,17 @@ header > h1 {
 .btn-primary{
     background-color: greenyellow;
     color:#152733;
-    font-weight: 400;
+    font-weight: 600;
     width: 99%;
     outline: none;
     border: 0px;
     border-radius: 10px;
      box-shadow: none;
+     text-align: center;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
-    background-color: #495056;
+    /* background-color: #495056; */
     outline: none !important;
     border: none !important;
      box-shadow: none;
@@ -189,6 +192,7 @@ header > h1 {
 #resultados{
     visibility: hidden;
 }
+
 
 
 /* .mv-up{

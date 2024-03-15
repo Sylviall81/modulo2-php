@@ -43,56 +43,60 @@ error_reporting(E_ALL);
 
                                         <?php
 
-                                        $listaParticipantes="";
+                                        $listaParticipantes = "";
                                         $arrayParticipantes = array();
 
-                                        $participante= "";
+                                        $participante = "";
 
-                                            if ($_POST['participante'] == ""|| !isset($_POST['participante'])) {
-                                                echo "<p><strong>Por favor ingresa un nómbre válido</strong></p>";
-                                            
-                                            } else {
+                                        if ($_POST['participante'] == "" || !isset($_POST['participante'])) {
+                                            echo "<p><strong>Por favor ingresa un nómbre válido</strong></p>";
+                                        } else {
 
 
-                                                $participante = test_input($_POST['participante']);
+                                            $participante = test_input($_POST['participante']);
 
-                                               
 
-                                                $archivoLista = fopen("lista.txt","a");
 
-                                                if(!$archivoLista){
-                                                    $archivoLista = fopen("lista.txt","w");
-                                                }
+                                            $archivoLista = fopen("lista.txt", "a");
 
-                                                fwrite($archivoLista, $participante."\n");
-
-                                                $listaParticipantes = file_get_contents("lista.txt");
-                                                                                             
-                                               $arrayParticipantes = explode("\n", $listaParticipantes);
-
+                                            if (!$archivoLista) {
+                                                $archivoLista = fopen("lista.txt", "w");
                                             }
 
-                                            ?>
+                                            fwrite($archivoLista, $participante . "\n");
 
-                                            <p> El usuario : <?php echo $participante?> <br>ha sido añadido a la lista de participantes</p> <br>
-                                            <p> <br><?php 
+                                            $listaParticipantes = file_get_contents("lista.txt");
 
-                                            // foreach ($arrayParticipantes as $participante) {
-                                            //     echo $participante . "<br>";
-                                            // }
-                                            
-                                            
-                                            
-                                            
-                                            ?></p>
+                                            $arrayParticipantes = explode("\n", $listaParticipantes);
+                                        }
 
-                                            <h2><a href="./index-sorteo.php">
+                                        ?>
 
-                                            Ir al Sorteo
+                                        <p> El usuario : <?php echo $participante ?> <br>ha sido añadido a la lista de participantes</p> <br>
+                                        <p> <br><?php
 
-                                            </a></h2>
+                                                foreach ($arrayParticipantes as $participante) {
+                                                    echo $participante . "<br>";
+                                                }
 
-                                        
+
+
+
+                                                ?></p>
+
+
+
+
+                                        <a href="./index-sorteo.php">
+                                            <div class="btn btn-primary">
+
+                                                SORTEO
+
+                                            </div>
+                                        </a>
+
+
+
 
 
 
@@ -102,7 +106,11 @@ error_reporting(E_ALL);
                                 </div>
 
 
-                                
+
+
+
+
+
                             </div>
                         </div>
                     </div>
