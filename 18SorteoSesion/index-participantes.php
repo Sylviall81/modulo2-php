@@ -53,54 +53,44 @@ if(isset($_GET["reset"])){
                                         </div>
 
                                         <?php
-
-                                   
-                                      
-
                                         $participante= "";
-                                        
-
+                                       
                                             if ($_POST['participante'] == ""|| !isset($_POST['participante'])) {
                                                 echo "<p><strong>Por favor ingresa un nómbre válido</strong></p>";
                                             
                                             } else {
-
-
-                                                $participante = test_input($_POST['participante']);
-
-                                            
+                                                 $participante = test_input($_POST['participante']);
 
                                                 if (!isset($_SESSION['participantes'])){
 
                                                     $_SESSION['participantes'] = array();
                                                 }
 
-                                                array_push ($_SESSION['participantes'],$participante);
-                                                
+                                                    array_push ($_SESSION['participantes'],$participante);
 
+                                                  ?>
+                                                  <br>
+                                                    <p> El usuario : <?php echo $participante ?> <br>
+                                                    ha sido añadido a la lista de participantes</p> <br>
+                                                    Lista: <br>
+                                                        <?php 
+                                                        foreach ($_SESSION['participantes'] as $participante) {
+                                                            echo $participante . "<br>";
+                                                        }
+                                        
                                             }
 
                                             ?>
+                                            <br>
 
-                                            <p> El usuario : <?php echo $participante?> <br>ha sido añadido a la lista de participantes</p> <br>
-                                            <p> <br>
-                                            Lista:
-                                          
-                                            <?php 
-
-                                           
-
-                                            foreach ($_SESSION['participantes'] as $participante) {
-                                                echo $participante . "<br>";
-                                            }
                                             
-                                            ?></p>
+                                            <div class = "flex-container">
 
-                                            <h2><a href="./index-sorteo.php">
-
-                                            Realizar Sorteo
-
-                                            </a></h2>
+                                            <div class="boton-sorteo">
+                                               <a href="./index-sorteo.php">
+                                           SORTEO
+                                            </a></div>
+                                            </div>
 
                                             
 

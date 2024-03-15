@@ -15,7 +15,7 @@
 
 a {
     font-weight: 900;
-    color:red;
+    color:greenyellow;
 }
 
 html, body {
@@ -23,6 +23,41 @@ html, body {
     background-color: #152733;
     color: white;
     
+    
+}
+
+.boton-sorteo{
+    background-color: white;
+    width:30%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 8px;
+   
+
+}
+.boton-reset{
+    background-color: red;
+    width:20%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 8px;
+   
+
+}
+.boton-reset a{
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+   
+
+}
+
+
+
+.boton-sorteo a{
+    color:red;
+    text-decoration: none;
+    font-weight: 600;
     
 }
 
@@ -37,7 +72,12 @@ li{
     text-align: left;
 }
 
-
+.flex-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 .form-holder {
       display: flex;
       flex-direction: column;
@@ -66,6 +106,7 @@ li{
     border: 3px solid #fff;
     padding: 10px;
     display: inline-block;
+    align-items: center;
     width: 99%;
     /* min-width: 540px; */
     -webkit-border-radius: 10px;
@@ -221,6 +262,8 @@ header > h1 {
         width: 35%;
         text-align: left;
     }
+
+    
 
 
 

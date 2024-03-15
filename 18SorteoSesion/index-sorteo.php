@@ -139,10 +139,6 @@ session_start();
             </section>
 
             <section class="list-content">
-
-
-
-
                 <h3>Información del sorteo</h3>
 
                 <?php
@@ -218,7 +214,6 @@ session_start();
                 $indexGanadores = pickWinner($numParticipantes, $cantidadPremios);
                 // print_r($indexGanadores);
                 ?>
-
                 <h2 id="ganadores"> GANADORES:</h2>
                 <ol>
                     <?php
@@ -230,14 +225,17 @@ session_start();
                     ?>
                 </ol>
 
+
+
     </div>
 
-    <h2><a href="index-participantes.php?reset=true">
-
-                                           RESET
-
-                                            </a></h2>
-
+    <div class="flex-container">
+        <div class="boton-reset">
+            <a href="index-participantes.php?reset=true">
+                RESET
+            </a>
+        </div>
+    </div>
 
     </section>
     </div>
