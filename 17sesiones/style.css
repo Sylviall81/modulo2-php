@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: gray;
+    color: black;
+   
+
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#form input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+#form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#form input[type="submit"]:active {
+    background-color: #004080;
+}
+
+/* Estilo para el placeholder */
+#form input::placeholder {
+    color: #aaa;
+}
+
+/* Estilo para el foco */
+#form input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.card {
+    width: calc(25% - 20px); /* Ajuste para cuatro tarjetas en una fila */
+    margin: 10px; /* Espacio entre tarjetas */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+a {
+
+    display: inline-block;
+    background-color: #004080;
+    color: white;
+    font-weight: 900;
+    border-color: black solid 1px;
+    width: 100px;
+    text-align: center;
+   
+}

@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
+*, body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    margin:0;
+    text-decoration: none;
+
+    
+}
+
+a {
+    font-weight: 900;
+    color:red;
+}
+
+html, body {
+    height: 100%;
+    background-color: #152733;
+    color: white;
+    
+    
+}
+
+header{
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+   
+}
+
+li{
+    text-align: left;
+}
+
+
+.form-holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* text-align: center; */
+      min-height: 100vh;
+}
+
+.form-holder .form-content {
+    position: relative;
+    /* text-align: center; */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    /* -webkit-justify-content: center; */
+    justify-content: center;
+    /* -webkit-align-items: center;
+    align-items: center; */
+    padding: 30px;
+}
+
+.form-content .form-items {
+    border: 3px solid #fff;
+    padding: 10px;
+    display: inline-block;
+    width: 99%;
+    /* min-width: 540px; */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    /* text-align: left; */
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    text-align: left;
+    overflow-x: hidden;
+}
+
+
+
+.list-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 5px;
+    margin: 5px;
+    
+   
+}
+
+
+
+
+
+
+.form-content h3, header > h1 {
+    color: #fff;
+    text-align: left;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+header > h1 {
+    text-align: center;
+}
+
+.form-content h3.form-title {
+    margin-bottom: 30px;
+}
+
+
+.form-content p {
+    color: #fff;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+
+.form-content label {
+    color: #fff;
+    text-align: left;
+
+}
+
+.form-content input[type=text],.form-content input[type=number], .form-content select {
+    width: 99%;
+    padding: 9px 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8D8D8D;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+
+.btn-primary{
+    background-color: greenyellow;
+    color:#152733;
+    font-weight: 400;
+    width: 99%;
+    outline: none;
+    border: 0px;
+    border-radius: 10px;
+     box-shadow: none;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+    background-color: #495056;
+    outline: none !important;
+    border: none !important;
+     box-shadow: none;
+}
+
+.mensaje, .mensaje > p{
+    background-color: #fff;
+    color: #152733;
+    border-radius: 10px;
+    width:99%;
+    text-align: center;
+}
+
+
+.info-sorteo, .info-participantes, .info-ganadores{
+    text-align: center;
+ 
+}
+
+
+.seccion-resultados {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    border: 3px solid #fff;
+    width: 85%;
+    margin: 0 auto 20px auto;
+    /* visibility: hidden; */
+}
+
+#resultados{
+    visibility: hidden;
+}
+
+
+/* .mv-up{
+    margin-top: -9px !important;
+    margin-bottom: 8px !important;
+} */
+
+@media all and (min-width: 768px){
+
+    .seccion-resultados{
+        flex-direction: row;
+        justify-items: space-around;
+        align-items: flex-start;
+        max-width: 1000px;
+
+    }
+
+   
+
+    .info-sorteo {
+        width: 40%;
+        text-align: left;
+    }
+    .info-participantes, .info-ganadores {
+        width: 35%;
+        text-align: left;
+    }
+
+
+
+
+
+}
