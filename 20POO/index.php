@@ -119,6 +119,10 @@
             }
         }
 
+       
+
+  
+
         $fido = new Pet("Dog", "Fido");
         $fido->set_color("black");
         $fido->set_image("https://cdn.pixabay.com/photo/2020/11/21/17/20/dog-5764666_1280.jpg");
@@ -132,6 +136,10 @@
         $beto->set_color("green");
         $beto->set_image("https://t4.ftcdn.net/jpg/04/54/73/07/360_F_454730706_VbQgrP0w3zqiVxUdxndQhjIjkNK481RQ.jpg");
 
+    
+        
+       
+        
         ?>
 
 
@@ -166,6 +174,18 @@
                 <li>y su color es: <?php echo $minina->get_color(); ?></li>
                 <li>y esta es su foto:</li>
                 <li> <img src="<?php echo $minina->get_image(); ?>" /></li>
+
+            </ol>
+        </div>
+
+        <div class="card">
+            <ol>
+
+                <li> La mascota de mi vecina es un/una: <?php echo $goldFish->animal; ?></li>
+                <li>su nombre es: <?php echo $goldFish->get_name(); ?></li>
+                <li>y su color es: <?php echo $goldFish->get_color(); ?></li>
+                <li>y esta es su foto:</li>
+                <li> <img src="<?php echo $goldFish->get_image(); ?>" /></li>
 
             </ol>
         </div>

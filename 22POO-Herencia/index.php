@@ -133,6 +133,15 @@
             }
         }
 
+        class Aqua_pet extends Pet {
+            protected function quickSwim() {
+              echo "swimming fast over the ocean";
+            }
+
+        }
+
+
+
         $fido = new Pet("Dog", "Fido");
         $fido->set_color("black");
         $fido->set_image("https://cdn.pixabay.com/photo/2020/11/21/17/20/dog-5764666_1280.jpg");
@@ -148,6 +157,11 @@
         $beto->set_color("green");
         $beto->set_image("https://t4.ftcdn.net/jpg/04/54/73/07/360_F_454730706_VbQgrP0w3zqiVxUdxndQhjIjkNK481RQ.jpg");
         $beto->set_adoptionDay('06/12/2018');
+
+        $goldFish = new Aqua_pet("Fish", "Nemo");
+        $goldFish->set_color("gold");
+        $goldFish->set_image("https://www.zooplus.es/magazine/wp-content/uploads/2021/02/Goldfish-1.jpg");
+        $goldFish->set_adoptionDay('05/05/2023');
 
         ?>
 
@@ -189,6 +203,21 @@
 
             </ol>
         </div>
+
+        <div class="card">
+            <ol>
+
+                <li> La mascota de mi vecino es un/una: <?php echo $goldFish->animal; ?></li>
+                <li>su nombre es: <?php echo $goldFish->get_name(); ?></li>
+                <li>y su color es: <?php echo $goldFish->get_color(); ?></li>
+                <li> y lo unico que hace todo el día es: METODO privado/prtegido<?php //$goldFish->quickSwim()?></li> <!--me da error xq es privado o protegido-->
+                <li>y esta es su foto:</li>
+                <li> <img src="<?php echo $goldFish->get_image(); ?>" /></li>
+                <li><strong>Fecha de adopción: <?php echo $goldFish->get_adoptionDay();?></strong></li>
+
+            </ol>
+        </div>
+
 
 
     </main>
