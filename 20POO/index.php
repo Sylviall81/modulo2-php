@@ -18,9 +18,13 @@
         box-sizing: border-box;
         margin: 0;
         text-decoration: none;
+
+
+    }
+
+    main {
         display: flex;
         flex-wrap: wrap;
-
     }
 
 
@@ -59,93 +63,114 @@
     }
 </style>
 
+
 <body>
+    <header>
+        <h1>Clase Mascotas</h1>
+    </header>
 
-    <?php
-    class Pet
-    {
-        public $animal;
-        private $name;
-        private $color;
-        private $image;
+    <main>
 
-        function __construct($animal, $name)
+        <?php
+        class Pet
         {
-            $this->animal = $animal;
-            $this->name = $name;
+            public $animal;
+            private $name;
+            private $color;
+            private $image;
+
+            function __construct($animal, $name)
+            {
+                $this->animal = $animal;
+                $this->name = $name;
+            }
+
+            function get_name()
+            {
+                return $this->name;
+            }
+
+            function get_animal()
+            {
+                return $this->animal;
+            }
+
+
+            function set_color($color)
+            {
+                $this->color = $color;
+            }
+
+            function set_image($image)
+            {
+                $this->image = $image;
+            }
+
+            function get_image()
+            {
+                return $this->image;
+            }
+
+
+            function get_color()
+            {
+                return $this->color;
+            }
         }
 
-        function get_name()
-        {
-            return $this->name;
-        }
+        $fido = new Pet("Dog", "Fido");
+        $fido->set_color("black");
+        $fido->set_image("https://cdn.pixabay.com/photo/2020/11/21/17/20/dog-5764666_1280.jpg");
 
-        function get_animal()
-        {
-            return $this->animal;
-        }
+        $minina = new Pet("Cat", "Minina");
+        $minina->set_color("white");
+        $minina->set_image("https://t4.ftcdn.net/jpg/00/34/60/73/360_F_34607398_HGAWhV9qIL1XzHZt8pBV6VKlRMJZTUqb.jpg");
 
 
-        function set_color($color)
-        {
-            $this->color = $color;
-        }
+        $beto = new Pet("Parrot", "Beto");
+        $beto->set_color("green");
+        $beto->set_image("https://t4.ftcdn.net/jpg/04/54/73/07/360_F_454730706_VbQgrP0w3zqiVxUdxndQhjIjkNK481RQ.jpg");
 
-        function set_image($image)
-        {
-            $this->image = $image;
-        }
-
-        function get_image()
-        {
-            return $this->image;
-        }
+        ?>
 
 
-        function get_color()
-        {
-            return $this->color;
-        }
-    }
+        <div class="card">
+            <ol>
 
-    $fido = new Pet("Dog", "Fido");
-    $fido->set_color("black");
-    $fido->set_image("https://cdn.pixabay.com/photo/2020/11/21/17/20/dog-5764666_1280.jpg");
+                <li> Mi mascota es un/una: <?php echo $fido->animal; ?></li>
+                <li>su nombre es: <?php echo $fido->get_name(); ?></li>
+                <li>y su color es: <?php echo $fido->get_color(); ?></li>
+                <li>y esta es su foto:</li>
+                <li> <img src="<?php echo $fido->get_image(); ?>" /></li>
 
-    $minina = new Pet("Cat", "Minina");
-    $minina->set_color("white");
-    $minina->set_image("https://t4.ftcdn.net/jpg/00/34/60/73/360_F_34607398_HGAWhV9qIL1XzHZt8pBV6VKlRMJZTUqb.jpg");
+            </ol>
+        </div>
+        <div class="card">
+            <ol>
 
-    ?>
+                <li> La mascota de mi madre es un/una: <?php echo $beto->animal; ?></li>
+                <li>su nombre es: <?php echo $beto->get_name(); ?></li>
+                <li>y su color es: <?php echo $beto->get_color(); ?></li>
+                <li>y esta es su foto:</li>
+                <li> <img src="<?php echo $beto->get_image(); ?>" /></li>
 
-<header>
-<h1>Clase Mascotas</h1>
-</header>
+            </ol>
+        </div>
+
+        <div class="card">
+            <ol>
+
+                <li> La mascota de mi prima es un/una: <?php echo $minina->animal; ?></li>
+                <li>su nombre es: <?php echo $minina->get_name(); ?></li>
+                <li>y su color es: <?php echo $minina->get_color(); ?></li>
+                <li>y esta es su foto:</li>
+                <li> <img src="<?php echo $minina->get_image(); ?>" /></li>
+
+            </ol>
+        </div>
 
 
-    <div class="card">
-        <ol>
-
-            <li> La mascota de mi prima es un/una: <?php echo $minina->animal; ?></li>
-            <li>su nombre es: <?php echo $fido->get_name(); ?></li>
-            <li>y su color es: <?php echo $fido->get_color(); ?></li>
-            <li>y esta es su foto:</li>
-            <li> <img src="<?php echo $minina->get_image(); ?>" /></li>
-
-        </ol>
-    </div>
-
-    <div class="card">
-        <ol>
-
-            <li> Mi mascota es un/una: <?php echo $fido->animal; ?></li>
-            <li>su nombre es: <?php echo $fido->get_name(); ?></li>
-            <li>y su color es: <?php echo $fido->get_color(); ?></li>
-            <li>y esta es su foto:</li>
-            <li> <img src="<?php echo $fido->get_image(); ?>" /></li>
-
-        </ol>
-    </div>
+    </main>
 
 </body>
 
