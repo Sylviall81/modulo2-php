@@ -98,12 +98,9 @@
                 return $this->name;
             }
 
-            public function set_image($image)
-            {
-                $this->image = $image;
-            }
+           
 
-            function getImage()
+            public function getImage()
             {
                 return $this->image;
             }
@@ -245,7 +242,7 @@
             $comment = test_input($_POST["comment"]);
 
 
-            if (($_POST["gender"])) {
+            if (empty($_POST["gender"])) {
                 $genderErr = "Gender is required";
             } else {
                 $gender = test_input($_POST["gender"]);
