@@ -21,6 +21,13 @@
     .card{
         margin: 0 auto;
     }
+
+    .full-wrapper{
+
+        display: flex;
+        flex-direction: row;
+
+    }
 </style>
 
 <body>
@@ -29,6 +36,7 @@
     </header>
 
     <main>
+
 
         <?php
 
@@ -101,29 +109,10 @@
             }
         }
 
-
-
-
-
-
-
-
         ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-        ?>
-
+<div class = "full-wrapper">
 
         <!---FORMULARIO DE REGISTRO DE USUARIO--->
 
@@ -190,7 +179,10 @@
                     <label for="comment">Comentarios:</label>
 
                 </div>
-                <textarea name="comment" id="" cols="30" rows="10"></textarea>
+                <div>
+                <textarea name="comment" id="" cols="30" rows="6"></textarea>
+                </div>
+                <br>
 
 
                 <!--<input type="file" name="profile-pic" id="profile-pic">-->
@@ -262,7 +254,7 @@
 
 
         $image = "./uploaded-files/pic4.jpg"; //arreglar primero  el cargar file
-        
+
 
 
         $currentUser = new User($name, $email, $ocupation, $education, $comment, $image);
@@ -347,7 +339,7 @@
 
 
 
-
+        </div>
     </main>
 
 </body>
