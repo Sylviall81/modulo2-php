@@ -4,26 +4,40 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-$server = "localhost";
+//ini
+
+$host = "localhost";
 $user = "user_erp";
 $psswd = "45960967Kk*";
 
-$conexion = mysqli_connect($server,$user,$psswd)
-or die ("No se ha podido conectar a la base de datos");
+// Conexión
+$conexion = mysqli_connect($host, $user, $password) or die ("No se puede conectar con el servidor");
 
-echo "Conectado a la base de datos";
+echo "Conectado al servidor";
+
+// Seleccionamos la base de datos
+
+$database = "noticias";
+mysqli_select_db($conexion, $database) or die ("No se puede seleccionar la base de datos");
+
+echo "Hemos seleccionado la base de datos $database";
 
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conexion DB</title>
+    <title>Conexión a Mysql</title>
 </head>
 <body>
-    
+    <?php
+        echo "La conexión se ha establecido\n";
+        echo "Hemos seleccionado la base de datos $database";
+    ?>
 </body>
 </html>
