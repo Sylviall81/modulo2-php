@@ -39,7 +39,7 @@ $resultCategorias = mysqli_query($conexion, $query) or die ("Fallo en la consult
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tarjeta de Noticia</title>
- <!-- <link rel="stylesheet" href="main.css"> -->
+	<link rel="stylesheet" href="main.css"> 
 </head>
 	
 	<style>
