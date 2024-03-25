@@ -35,6 +35,9 @@ $result =mysqli_query($conexion,$q) or die("Fallo en la conexion");
 $nrows = mysqli_num_rows ($result); //funcion q cuenta el num de filas
 
 
+
+
+
 //print_r($nrows);
 
 echo "<br>";
@@ -57,7 +60,7 @@ echo "<br>";
 	
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="main.css" />
+	<!--<link rel="stylesheet" href="main.css" />-->
 	
 </head>
 	<style>
@@ -70,6 +73,9 @@ echo "<br>";
 		td {
 		text-align: left;
 		};
+		
+		
+		
 	</style>
 	
 	
@@ -87,9 +93,9 @@ echo "<br>";
 	
 	<!--form para recoger noticias-->
 	
-	<div>
+	<div class="form-container">
 	
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"method="POST"> 
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"method="POST" enctype="multipart/form-data"> 
 
             <label for="titulo">
                 Título: <input type="text" name="titulo" value="Noticia introducida por Form"><br>
@@ -100,18 +106,58 @@ echo "<br>";
 			 <label for="texto">
                 Texto: <input type="text" name="texto" value="Lorem ipsum Lorem ipsum lorem ipsum"><br>
             </label>
-			<label for="categoria">
-                Categoría <input type="text" name="categoria" value="general"><br>
+		
+			
+		<label>Categoría: <input list="categorias" name="categoria" value="" /></label>
+		
+    	
+				
+				<datalist id="categorias">
+					<option value="Chrome"></option>
+					
+					<?php 
+					
+					$query = "SELECT DISTINCT categoria FROM noticias ORDER BY categoria";
+					
+					$resultCats = mysqli_query($conexion, $query) or die ("Fallo en la consulta");
+					
+					while ($row = mysqli_fetch_array($resultCats)){?>
+					
+					<option value= "<?php echo $row['categoria'];?>"><?php echo $row['categoria']?></option>
+						
+				
+
+					
+					<?php } ?>
+  
+
+</datalist>
+				
+				
+				
+				
+				
+				
+			
+					
+			
+				
 			</label>
             
-					<label for="imagen-url">
+					
+		<label>
+			Subir Imagen:<br>
+		
+		<input type="file" name="imagen-file" id="imagen-file">
+		</label>
+		
+	<label for="imagen-url">
 
-                url de imagen:<input type='url' name="imagen-url"><br>
+                Url de imagen:<input type='url' name="imagen-url"><br>
                 
             </label>
-
             
-<!-- <input type="file" name="profile-pic" id="profile-pic">-->
+
 		
             <input type="submit" value="enviar" name="submit">
 
@@ -124,18 +170,40 @@ echo "<br>";
 				$texto=$_POST['texto'];
 				$categoria=$_POST['categoria'];
 				$imagen_url=$_POST['imagen-url'];
+				$imagen_file=$_POST['imagen-file'];
 				
-				$q = " INSERT INTO `noticia` (`id`, `fecha`, `autor`, `titulo`, `texto`, `categoria`, `imagen-url`) VALUES (NULL, CURRENT_TIMESTAMP, '$autor','$titulo','$texto','$categoria','$imagen_url')";
+			
+					
+					 if (isset($_FILES['imagen-file'])){
+						 $timestamp = time(); // Obtenemos el timestamp actual
+						 $filename = $timestamp . "-" . $_FILES['imagen-file']['name'];
+						 
+						 
+						 
+						 $imagePath= "img/.$filename.";
+           
+
+				 	if (!move_uploaded_file($_FILES['imagen-file']['tmp_name'], $imagePath)){
+							$mensaje = "ERROR: no se ha subido la noticia <a href=index.php>'VOLVER'</a>";
+					 	echo $mensaje;
+						$imagen_file = "img/default.jpg" ;
+						
+					 	exit;
+				 	} 
+					 $imagen_file = $imagePath;
+					
+					
+					//Creamos la consulta SQL
+				
+				$q = " INSERT INTO `noticia` (`id`, `fecha`, `autor`, `titulo`, `texto`, `categoria`, `imagen-url`,`imagen-file`) VALUES (NULL, CURRENT_TIMESTAMP, '$autor','$titulo','$texto','$categoria','$imagen_url','$imagen_file')";
 				mysqli_query($conexion,$q);
 				
 				mysqli_close($conexion);
 				
 				
-			
-
-			};
+				};
 				
-               
+			}
 
 
     ?>
@@ -157,7 +225,7 @@ echo "<br>";
 						<table>
 							<thead id="top">
 								<tr>
-									<th>Imagen</th>
+									<th colspan="2">Imagen</th>
 									<th>Id </th>
 									<th>Título</th>
 									<th>Autor/a</th>
@@ -173,27 +241,61 @@ echo "<br>";
 								while($row = mysqli_fetch_array($result)){ ?>
 	
 								<tr >
+									<td><img src="<?php echo $row['imagen-file'] ?>" alt ='imagen noticia' width = '200px'></td>
 									<td><img src="<?php echo $row['imagen-url'] ?>" alt ='imagen noticia' width = '200px'></td>
 									<td><?php echo $row['id']; ?></td>
 									<td><strong><?php echo $row["titulo"]; ?></strong></td>
 									<td><?php echo $row["autor"]; ?></td>
 									<td><?php echo $row["categoria"]; ?></td>
 									<td><?php echo $row["fecha"]; ?></td>
-									<td ><?php echo $row["texto"]; ?></td>
-									
-									
-									
-								</tr>
-		
-								
-								<?php
+									<td ><?php //echo $row["texto"];	
+										 $strFinal = substr($row["texto"], 0, 100);//corta la noticia en 100 caract 
+										   echo $strFinal;
+										   if ($strFinal < $row["texto"]){
+                       echo " ... ";
+                   }
 																		  
+					/*	echo " <br>";												  
+                       echo " <br><b><a href='noticia.php?id=" . $row['id'] ."'>Ver Noticia -></a></b><br>";
+						echo " <br><b><a href='noticia.php?id=" . $row['id'] ."&modificar=true'> Ver Noticia y actualizar -></a></b><br>";												  
+                    //   echo " <a href='noticia.php?id=" . $row['id'] ."&update=true'>Modificar noticia -></a>";*/
+                   ?>
+
+									
+									</td>
+									<td colspan = "3">
+										
+										<?php
+																		  
+																		  
+					echo " <br><b><a href='noticia.php?id=" . $row['id'] ."'>Ver Noticia -></a></b><br>";
+					echo " <br><b><a href='noticia.php?id=" . $row['id'] ."&modificar=true'> Ver Noticia y actualizar -></a></b><br>";												  
+															
+										
+										?>
+										
+										<form action="eliminar.php" method="post">
+											<input type="hidden" name = "id" value="<?php echo $row['id'];?>">
+											<input type="hidden" name = "imagen-file" value="<?php echo $row['imagen-file'];?>">
+											
+										<input style = "background-color: red;" type="submit" value="Eliminar">
+										</form>
+									
+									
+									</td>
+								</tr>
+								
+								<?php								  
 											array_push($newsArray,$row);							  
 																		
 																		  
 										}; 
+                   ?>
+
 								
-								?>
+								
+								
+				
 							</tbody>
 							<tfoot>
 								<tr>
@@ -210,7 +312,7 @@ echo "<br>";
 	
 	<?php
 	
-	//print_r($newsArray); si funciona imprime el array con las row
+	//print_r($newsArray); si funciona, xq imprime el array con las row
 	
 
     ?>
