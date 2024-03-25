@@ -24,6 +24,9 @@ mysqli_select_db($conexion, $database) or die ("No se puede seleccionar la base 
 //echo "Hemos seleccionado la base de datos $database";
 //echo "<br>";
 
+//nueva query para traer las categorias al datalist igual q en index
+$query = "SELECT DISTINCT categoria FROM noticia ORDER BY categoria";
+$resultCategorias = mysqli_query($conexion, $query) or die ("Fallo en la consulta");
 
 
 ?>
@@ -36,7 +39,7 @@ mysqli_select_db($conexion, $database) or die ("No se puede seleccionar la base 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tarjeta de Noticia</title>
-  <link rel="stylesheet" href="main.css">
+ <!-- <link rel="stylesheet" href="main.css"> -->
 </head>
 	
 	<style>
@@ -228,24 +231,21 @@ $result =mysqli_query($conexion,$q) or die("Fallo en la conexion");
 				<input type="text" id="fecha" value = "<?php echo $fecha?>" name="fecha" required>
 
 				<label for="categoria">Categoría:</label>
-				  <input type="text" id="categoria" value = "<?php echo $categoria?>" name="categoria" required>
-				  
-				  <!--
-				<select id="categoria" value = ""name="categoria" required>
-				  <option value="">Selecciona una categoría</option>
-				  <option value="política">política</option>
-				  <option value="deportes">deportes</option>
-					<option value="local">local</option>
-					<option value="internacional">internacional</option>
-				  <option value="general">general</option>
-				  <option value="cultura">cultura</option>
-					<option value="eventos">eventos</option>
-					<option value="cine">cine</option>
-
-
-</select>-->
-					
-				  <!-- Agrega más opciones según sea necesario -->
+				<input list="categorias" type="text" id="categoria" name="categoria" value="<?php echo $categoria;?>" >
+				  <datalist id="categorias">
+                <?php
+                
+                // Bucle sobre las distintas categorías.
+                    while ($cat = mysqli_fetch_array($resultCategorias)) { 
+                        $selected="";
+                        if ($categoria == $cat["categoria"]) $selected="selected";
+                        ?>
+                    <option value="<?php echo $cat["categoria"]; ?>" <?php echo $selected; ?>>
+                        <?php echo $cat["categoria"]; ?>
+                    </option>
+                <?php  } ?>
+            </datalist>
+				
 				
 
 				<input type="submit" value="Guardar Cambios">
@@ -258,9 +258,6 @@ $result =mysqli_query($conexion,$q) or die("Fallo en la conexion");
 			
 			
 		/*$q = "UPDATE `noticia` SET `id`='$id',`fecha`='$fecha.',`autor`='$_POST["autor"]',`titulo`='$_POST["titulo"]',`texto`='$_POST["texto"]',`categoria`='$_POST["categoria"]',`imagen-url`='[url-imagen]' WHERE 'id'= $id";*/
-			
-			
-			
 			
 	}
 	
