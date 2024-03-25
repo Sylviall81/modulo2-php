@@ -45,7 +45,7 @@ echo "<br>";
 
 //print_r($row);
 
-mysqli_close($conexion); // Cerramos la conexión
+//mysqli_close($conexion); // Cerramos la conexión
 
 
 ?>
@@ -154,7 +154,7 @@ mysqli_close($conexion); // Cerramos la conexión
 				$texto = $_POST['texto'];
 				$categoria = $_POST['categoria'];
 				$imagen_url = $_POST['imagen-url'];
-				$imagen_file = $_POST['imagen-file'];
+				//$imagen_file = $_POST['imagen-file'];
 
 
 
